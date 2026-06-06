@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- Shield shape background -->
+    <path
+        android:fillColor="#1B5E20"
+        android:pathData="M54,12 L12,30 L12,54 C12,78 30,96 54,102 C78,96 96,78 96,54 L96,30 Z" />
+
+    <!-- Road icon -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M34,45 L74,45 L74,51 L34,51 Z" />
+
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M30,54 L78,54 L78,60 L30,60 Z" />
+
+    <!-- Warning triangle -->
+    <path
+        android:fillColor="#FF6F00"
+        android:pathData="M54,30 L44,52 L64,52 Z" />
+
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M54,37 L50,47 L58,47 Z" />
+
+    <circle
+        android:cx="54"
+        android:cy="49"
+        android:r="1.5"
+        android:fillColor="#FFFFFF" />
+
+</vector>

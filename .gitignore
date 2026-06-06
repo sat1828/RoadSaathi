@@ -1,0 +1,53 @@
+# Android
+android/.gradle/
+android/build/
+android/app/build/
+android/app/release/
+android/local.properties
+android/*.iml
+android/.idea/
+*.apk
+*.aab
+*.hprof
+
+# Backend
+backend/target/
+backend/*.jar
+backend/*.log
+backend/.idea/
+backend/*.iml
+
+# Admin
+admin/node_modules/
+admin/dist/
+admin/.vite/
+admin/*.tsbuildinfo
+
+# OS
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# Env
+.env
+.env.local
+*.local
+
+# IDE
+.idea/
+.vscode/
+*.iml
+*.iws
+
+# Logs
+*.log
+logs/
+
+# Firebase
+firebase-service-account.json
+android/app/google-services.json
+
+# Gradle wrapper JAR
+android/gradle/wrapper/gradle-wrapper.jar
