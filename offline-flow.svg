@@ -1,0 +1,135 @@
+<svg viewBox="0 0 1100 280" xmlns="http://www.w3.org/2000/svg" width="1100" height="280">
+  <defs>
+    <linearGradient id="flowBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#080e1c"/>
+      <stop offset="100%" style="stop-color:#0d1728"/>
+    </linearGradient>
+    <filter id="nodeGlow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <marker id="fwdArrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M 0 0 L 6 3 L 0 6 Z" fill="#ff6b35"/>
+    </marker>
+    <pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="10" cy="10" r="0.8" fill="#1e2d4a"/>
+    </pattern>
+  </defs>
+
+  <rect width="1100" height="280" fill="url(#flowBg)"/>
+  <rect width="1100" height="280" fill="url(#dots)" opacity="0.8"/>
+
+  <text x="550" y="35" text-anchor="middle" font-family="Georgia, serif" font-size="18" fill="#ffffff" font-weight="bold">Offline-First Reporting Pipeline</text>
+  <text x="550" y="54" text-anchor="middle" font-family="monospace" font-size="10" fill="#ff6b35" letter-spacing="3">CITIZEN → CLOUD — ZERO NETWORK DEPENDENCY AT CAPTURE</text>
+
+  <!-- Step nodes -->
+  <!-- Step 1: Capture -->
+  <g transform="translate(55, 90)" filter="url(#nodeGlow)">
+    <circle cx="55" cy="55" r="48" fill="#0a1628" stroke="#ff6b35" stroke-width="2"/>
+    <text x="55" y="44" text-anchor="middle" font-size="22" fill="#ff6b35">📷</text>
+    <text x="55" y="62" text-anchor="middle" font-family="monospace" font-size="10" fill="#ff6b35" font-weight="bold">CAPTURE</text>
+    <text x="55" y="76" text-anchor="middle" font-family="monospace" font-size="8" fill="#667799">CameraX</text>
+    <text x="55" y="88" text-anchor="middle" font-family="monospace" font-size="8" fill="#667799">+ GPS</text>
+  </g>
+  <text x="110" y="238" text-anchor="middle" font-family="monospace" font-size="9" fill="#334455">Step 1</text>
+
+  <!-- Arrow 1→2 -->
+  <line x1="160" y1="145" x2="195" y2="145" stroke="#ff6b35" stroke-width="2" marker-end="url(#fwdArrow)">
+    <animate attributeName="stroke-dasharray" values="0,100;100,0" dur="2s" repeatCount="indefinite"/>
+  </line>
+
+  <!-- Step 2: Classify -->
+  <g transform="translate(200, 90)" filter="url(#nodeGlow)">
+    <circle cx="55" cy="55" r="48" fill="#0a1628" stroke="#fbbf24" stroke-width="2"/>
+    <text x="55" y="44" text-anchor="middle" font-size="22" fill="#fbbf24">🧠</text>
+    <text x="55" y="62" text-anchor="middle" font-family="monospace" font-size="10" fill="#fbbf24" font-weight="bold">CLASSIFY</text>
+    <text x="55" y="76" text-anchor="middle" font-family="monospace" font-size="8" fill="#667799">TFLite CNN</text>
+    <text x="55" y="88" text-anchor="middle" font-family="monospace" font-size="8" fill="#667799">On-device</text>
+  </g>
+  <text x="255" y="238" text-anchor="middle" font-family="monospace" font-size="9" fill="#334455">Step 2</text>
+
+  <!-- Arrow 2→3 -->
+  <line x1="305" y1="145" x2="340" y2="145" stroke="#ff6b35" stroke-width="2" marker-end="url(#fwdArrow)">
+    <animate attributeName="stroke-dasharray" values="0,100;100,0" dur="2s" begin="0.4s" repeatCount="indefinite"/>
+  </line>
+
+  <!-- Step 3: Store -->
+  <g transform="translate(345, 90)" filter="url(#nodeGlow)">
+    <circle cx="55" cy="55" r="48" fill="#0a1628" stroke="#22c55e" stroke-width="2"/>
+    <text x="55" y="44" text-anchor="middle" font-size="22" fill="#22c55e">🗄</text>
+    <text x="55" y="62" text-anchor="middle" font-family="monospace" font-size="10" fill="#22c55e" font-weight="bold">STORE</text>
+    <text x="55" y="76" text-anchor="middle" font-family="monospace" font-size="8" fill="#667799">Room DB</text>
+    <text x="55" y="88" text-anchor="middle" font-family="monospace" font-size="8" fill="#667799">isSynced=false</text>
+  </g>
+  <text x="400" y="238" text-anchor="middle" font-family="monospace" font-size="9" fill="#334455">Step 3</text>
+
+  <!-- Arrow 3→4 with "when online" label -->
+  <line x1="450" y1="145" x2="485" y2="145" stroke="#ff6b35" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#fwdArrow)">
+    <animate attributeName="stroke-dashoffset" values="0;-16" dur="1s" repeatCount="indefinite"/>
+  </line>
+  <text x="467" y="132" text-anchor="middle" font-family="monospace" font-size="8" fill="#ff6b35">network</text>
+  <text x="467" y="122" text-anchor="middle" font-family="monospace" font-size="8" fill="#ff6b35">online?</text>
+
+  <!-- Step 4: Sync -->
+  <g transform="translate(490, 90)" filter="url(#nodeGlow)">
+    <circle cx="55" cy="55" r="48" fill="#0a1628" stroke="#61DAFB" stroke-width="2"/>
+    <text x="55" y="44" text-anchor="middle" font-size="22" fill="#61DAFB">⚡</text>
+    <text x="55" y="62" text-anchor="middle" font-family="monospace" font-size="10" fill="#61DAFB" font-weight="bold">SYNC</text>
+    <text x="55" y="76" text-anchor="middle" font-family="monospace" font-size="8" fill="#667799">WorkManager</text>
+    <text x="55" y="88" text-anchor="middle" font-family="monospace" font-size="8" fill="#667799">Exp. backoff</text>
+  </g>
+  <text x="545" y="238" text-anchor="middle" font-family="monospace" font-size="9" fill="#334455">Step 4</text>
+
+  <!-- Arrow 4→5 -->
+  <line x1="595" y1="145" x2="630" y2="145" stroke="#ff6b35" stroke-width="2" marker-end="url(#fwdArrow)">
+    <animate attributeName="stroke-dasharray" values="0,100;100,0" dur="2s" begin="0.8s" repeatCount="indefinite"/>
+  </line>
+
+  <!-- Step 5: API -->
+  <g transform="translate(635, 90)" filter="url(#nodeGlow)">
+    <circle cx="55" cy="55" r="48" fill="#0a1628" stroke="#6DB33F" stroke-width="2"/>
+    <text x="55" y="44" text-anchor="middle" font-size="22" fill="#6DB33F">☁</text>
+    <text x="55" y="62" text-anchor="middle" font-family="monospace" font-size="10" fill="#6DB33F" font-weight="bold">INGEST</text>
+    <text x="55" y="76" text-anchor="middle" font-family="monospace" font-size="8" fill="#667799">Spring Boot</text>
+    <text x="55" y="88" text-anchor="middle" font-family="monospace" font-size="8" fill="#667799">+ S3 upload</text>
+  </g>
+  <text x="690" y="238" text-anchor="middle" font-family="monospace" font-size="9" fill="#334455">Step 5</text>
+
+  <!-- Arrow 5→6 -->
+  <line x1="740" y1="145" x2="775" y2="145" stroke="#ff6b35" stroke-width="2" marker-end="url(#fwdArrow)">
+    <animate attributeName="stroke-dasharray" values="0,100;100,0" dur="2s" begin="1.2s" repeatCount="indefinite"/>
+  </line>
+
+  <!-- Step 6: Triage -->
+  <g transform="translate(780, 90)" filter="url(#nodeGlow)">
+    <circle cx="55" cy="55" r="48" fill="#0a1628" stroke="#d97706" stroke-width="2"/>
+    <text x="55" y="44" text-anchor="middle" font-size="22" fill="#d97706">🤖</text>
+    <text x="55" y="62" text-anchor="middle" font-family="monospace" font-size="10" fill="#d97706" font-weight="bold">TRIAGE</text>
+    <text x="55" y="76" text-anchor="middle" font-family="monospace" font-size="8" fill="#667799">Claude AI</text>
+    <text x="55" y="88" text-anchor="middle" font-family="monospace" font-size="8" fill="#667799">Severity score</text>
+  </g>
+  <text x="835" y="238" text-anchor="middle" font-family="monospace" font-size="9" fill="#334455">Step 6</text>
+
+  <!-- Arrow 6→7 -->
+  <line x1="885" y1="145" x2="920" y2="145" stroke="#ff6b35" stroke-width="2" marker-end="url(#fwdArrow)">
+    <animate attributeName="stroke-dasharray" values="0,100;100,0" dur="2s" begin="1.6s" repeatCount="indefinite"/>
+  </line>
+
+  <!-- Step 7: Alert -->
+  <g transform="translate(925, 90)" filter="url(#nodeGlow)">
+    <circle cx="55" cy="55" r="48" fill="#0a1628" stroke="#ec4899" stroke-width="2"/>
+    <text x="55" y="44" text-anchor="middle" font-size="22" fill="#ec4899">📡</text>
+    <text x="55" y="62" text-anchor="middle" font-family="monospace" font-size="10" fill="#ec4899" font-weight="bold">ALERT</text>
+    <text x="55" y="76" text-anchor="middle" font-family="monospace" font-size="8" fill="#667799">NHAI eng.</text>
+    <text x="55" y="88" text-anchor="middle" font-family="monospace" font-size="8" fill="#667799">Geo-fenced</text>
+  </g>
+  <text x="980" y="238" text-anchor="middle" font-family="monospace" font-size="9" fill="#334455">Step 7</text>
+
+  <!-- Offline zone bar -->
+  <rect x="52" y="256" width="456" height="18" rx="4" fill="#ff6b35" opacity="0.08" stroke="#ff6b35" stroke-width="0.5"/>
+  <text x="280" y="269" text-anchor="middle" font-family="monospace" font-size="9" fill="#ff6b35">✈ OFFLINE ZONE — No internet needed here</text>
+
+  <!-- Online zone bar -->
+  <rect x="516" y="256" width="532" height="18" rx="4" fill="#22c55e" opacity="0.08" stroke="#22c55e" stroke-width="0.5"/>
+  <text x="782" y="269" text-anchor="middle" font-family="monospace" font-size="9" fill="#22c55e">🌐 CLOUD ZONE — Syncs when connectivity available</text>
+</svg>

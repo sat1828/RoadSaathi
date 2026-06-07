@@ -1,0 +1,214 @@
+<svg viewBox="0 0 1100 360" xmlns="http://www.w3.org/2000/svg" width="1100" height="360">
+  <defs>
+    <linearGradient id="techBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#060d1a"/>
+      <stop offset="100%" style="stop-color:#0a1428"/>
+    </linearGradient>
+    <pattern id="techDots" width="18" height="18" patternUnits="userSpaceOnUse">
+      <circle cx="9" cy="9" r="0.7" fill="#131e30"/>
+    </pattern>
+  </defs>
+
+  <rect width="1100" height="360" fill="url(#techBg)"/>
+  <rect width="1100" height="360" fill="url(#techDots)"/>
+
+  <text x="550" y="32" text-anchor="middle" font-family="Georgia, serif" font-size="16" fill="#ffffff" font-weight="bold">PostGIS Spatial Intelligence + Full Tech Stack</text>
+  <line x1="200" y1="42" x2="900" y2="42" stroke="#336791" stroke-width="0.5" opacity="0.5"/>
+
+  <!-- LEFT PANEL: PostGIS queries -->
+  <rect x="20" y="56" width="500" height="290" rx="10" fill="#071012" stroke="#336791" stroke-width="1.5"/>
+  <rect x="20" y="56" width="500" height="32" rx="10" fill="#0d2030" opacity="0.8"/>
+  <rect x="20" y="75" width="500" height="13" rx="0" fill="#0d2030" opacity="0.5"/>
+  <text x="40" y="77" font-family="monospace" font-size="10" fill="#5ba4cf" font-weight="bold">🗺  PostGIS — Spatial Queries in Production</text>
+
+  <!-- Query 1 -->
+  <text x="36" y="107" font-family="monospace" font-size="9" fill="#445566">-- Find all hazards within 50km radius</text>
+  <rect x="30" y="112" width="480" height="58" rx="6" fill="#040d14"/>
+  <text x="42" y="126" font-family="'Courier New', monospace" font-size="9" fill="#6DB33F">SELECT</text>
+  <text x="78" y="126" font-family="'Courier New', monospace" font-size="9" fill="#ffffff"> * </text>
+  <text x="90" y="126" font-family="'Courier New', monospace" font-size="9" fill="#6DB33F">FROM</text>
+  <text x="116" y="126" font-family="'Courier New', monospace" font-size="9" fill="#61DAFB"> hazard_reports</text>
+  <text x="42" y="139" font-family="'Courier New', monospace" font-size="9" fill="#6DB33F">WHERE</text>
+  <text x="78" y="139" font-family="'Courier New', monospace" font-size="9" fill="#fbbf24"> ST_DWithin</text>
+  <text x="150" y="139" font-family="'Courier New', monospace" font-size="9" fill="#ffffff">(location,</text>
+  <text x="42" y="152" font-family="'Courier New', monospace" font-size="9" fill="#ffffff">  ST_SetSRID(ST_MakePoint(</text>
+  <text x="194" y="152" font-family="'Courier New', monospace" font-size="9" fill="#ff6b35">:lng, :lat</text>
+  <text x="236" y="152" font-family="'Courier New', monospace" font-size="9" fill="#ffffff">), </text>
+  <text x="248" y="152" font-family="'Courier New', monospace" font-size="9" fill="#c084fc">4326</text>
+  <text x="270" y="152" font-family="'Courier New', monospace" font-size="9" fill="#ffffff">), </text>
+  <text x="282" y="152" font-family="'Courier New', monospace" font-size="9" fill="#ff6b35">0.5</text>
+  <text x="296" y="152" font-family="'Courier New', monospace" font-size="9" fill="#ffffff">);</text>
+  <text x="310" y="162" font-family="'Courier New', monospace" font-size="8" fill="#334455">-- ~50km at equator</text>
+
+  <!-- Query 2 -->
+  <text x="36" y="185" font-family="monospace" font-size="9" fill="#445566">-- DBSCAN cluster blackspots</text>
+  <rect x="30" y="190" width="480" height="66" rx="6" fill="#040d14"/>
+  <text x="42" y="204" font-family="'Courier New', monospace" font-size="9" fill="#6DB33F">SELECT</text>
+  <text x="78" y="204" font-family="'Courier New', monospace" font-size="9" fill="#fbbf24"> ST_ClusterDBSCAN</text>
+  <text x="178" y="204" font-family="'Courier New', monospace" font-size="9" fill="#ffffff">(location, </text>
+  <text x="228" y="204" font-family="'Courier New', monospace" font-size="9" fill="#ff6b35">0.01</text>
+  <text x="248" y="204" font-family="'Courier New', monospace" font-size="9" fill="#ffffff">, </text>
+  <text x="256" y="204" font-family="'Courier New', monospace" font-size="9" fill="#ff6b35">3</text>
+  <text x="262" y="204" font-family="'Courier New', monospace" font-size="9" fill="#ffffff">)</text>
+  <text x="272" y="204" font-family="'Courier New', monospace" font-size="9" fill="#6DB33F"> OVER</text>
+  <text x="302" y="204" font-family="'Courier New', monospace" font-size="9" fill="#ffffff">() AS cluster_id,</text>
+  <text x="42" y="217" font-family="'Courier New', monospace" font-size="9" fill="#fbbf24">       COUNT</text>
+  <text x="98" y="217" font-family="'Courier New', monospace" font-size="9" fill="#ffffff">(*) AS report_count,</text>
+  <text x="42" y="230" font-family="'Courier New', monospace" font-size="9" fill="#fbbf24">       ST_Centroid</text>
+  <text x="126" y="230" font-family="'Courier New', monospace" font-size="9" fill="#ffffff">(ST_Collect(location)) AS centroid</text>
+  <text x="42" y="243" font-family="'Courier New', monospace" font-size="9" fill="#6DB33F">FROM</text>
+  <text x="68" y="243" font-family="'Courier New', monospace" font-size="9" fill="#61DAFB"> hazard_reports</text>
+  <text x="152" y="243" font-family="'Courier New', monospace" font-size="9" fill="#6DB33F">WHERE</text>
+  <text x="186" y="243" font-family="'Courier New', monospace" font-size="9" fill="#ffffff"> status != </text>
+  <text x="230" y="243" font-family="'Courier New', monospace" font-size="9" fill="#ff6b35">'resolved'</text>
+  <text x="278" y="243" font-family="'Courier New', monospace" font-size="9" fill="#ffffff">;</text>
+
+  <!-- Query 3 -->
+  <text x="36" y="272" font-family="monospace" font-size="9" fill="#445566">-- Nearest NH corridor lookup</text>
+  <rect x="30" y="277" width="480" height="54" rx="6" fill="#040d14"/>
+  <text x="42" y="291" font-family="'Courier New', monospace" font-size="9" fill="#6DB33F">SELECT</text>
+  <text x="78" y="291" font-family="'Courier New', monospace" font-size="9" fill="#61DAFB"> nh_name</text>
+  <text x="118" y="291" font-family="'Courier New', monospace" font-size="9" fill="#6DB33F"> FROM</text>
+  <text x="145" y="291" font-family="'Courier New', monospace" font-size="9" fill="#61DAFB"> nh_corridors</text>
+  <text x="42" y="304" font-family="'Courier New', monospace" font-size="9" fill="#6DB33F">ORDER BY</text>
+  <text x="90" y="304" font-family="'Courier New', monospace" font-size="9" fill="#ffffff"> location </text>
+  <text x="128" y="304" font-family="'Courier New', monospace" font-size="9" fill="#fbbf24">&lt;-&gt;</text>
+  <text x="142" y="304" font-family="'Courier New', monospace" font-size="9" fill="#fbbf24"> ST_SetSRID</text>
+  <text x="196" y="304" font-family="'Courier New', monospace" font-size="9" fill="#ffffff">(ST_MakePoint(</text>
+  <text x="270" y="304" font-family="'Courier New', monospace" font-size="9" fill="#ff6b35">:lng, :lat</text>
+  <text x="310" y="304" font-family="'Courier New', monospace" font-size="9" fill="#ffffff">), </text>
+  <text x="322" y="304" font-family="'Courier New', monospace" font-size="9" fill="#c084fc">4326</text>
+  <text x="344" y="304" font-family="'Courier New', monospace" font-size="9" fill="#ffffff">)::</text>
+  <text x="356" y="304" font-family="'Courier New', monospace" font-size="9" fill="#fbbf24">geography</text>
+  <text x="42" y="317" font-family="'Courier New', monospace" font-size="9" fill="#6DB33F">LIMIT</text>
+  <text x="72" y="317" font-family="'Courier New', monospace" font-size="9" fill="#ff6b35"> 1</text>
+  <text x="80" y="317" font-family="'Courier New', monospace" font-size="9" fill="#ffffff">;</text>
+  <text x="100" y="317" font-family="'Courier New', monospace" font-size="8" fill="#334455">-- KNN operator</text>
+
+  <!-- RIGHT PANEL: Tech stack grid -->
+  <rect x="540" y="56" width="540" height="290" rx="10" fill="#0a0f1e" stroke="#1e3a5f" stroke-width="1.5"/>
+  <rect x="540" y="56" width="540" height="32" rx="10" fill="#111827" opacity="0.8"/>
+  <rect x="540" y="75" width="540" height="13" rx="0" fill="#111827" opacity="0.5"/>
+  <text x="560" y="77" font-family="monospace" font-size="10" fill="#8899aa" font-weight="bold">⚡ Complete Technology Stack</text>
+
+  <g font-family="monospace">
+    <!-- Row headers -->
+    <text x="556" y="108" font-size="9" fill="#334455" letter-spacing="1">MOBILE</text>
+    <text x="556" y="165" font-size="9" fill="#334455" letter-spacing="1">BACKEND</text>
+    <text x="556" y="222" font-size="9" fill="#334455" letter-spacing="1">FRONTEND</text>
+    <text x="556" y="279" font-size="9" fill="#334455" letter-spacing="1">INFRA</text>
+
+    <!-- Mobile row -->
+    <rect x="556" y="112" width="68" height="42" rx="6" fill="#1a1028" stroke="#7F52FF" stroke-width="1"/>
+    <text x="590" y="130" text-anchor="middle" font-size="14" fill="#7F52FF">🤖</text>
+    <text x="590" y="145" text-anchor="middle" font-size="8" fill="#7F52FF">Kotlin</text>
+    <text x="590" y="154" text-anchor="middle" font-size="7" fill="#445566">48.6%</text>
+
+    <rect x="632" y="112" width="68" height="42" rx="6" fill="#0f1628" stroke="#2d4a8a" stroke-width="1"/>
+    <text x="666" y="130" text-anchor="middle" font-size="14" fill="#61DAFB">📷</text>
+    <text x="666" y="145" text-anchor="middle" font-size="8" fill="#61DAFB">CameraX</text>
+
+    <rect x="708" y="112" width="68" height="42" rx="6" fill="#0f1628" stroke="#d97706" stroke-width="1"/>
+    <text x="742" y="130" text-anchor="middle" font-size="14" fill="#fbbf24">🧠</text>
+    <text x="742" y="145" text-anchor="middle" font-size="8" fill="#fbbf24">TFLite</text>
+    <text x="742" y="154" text-anchor="middle" font-size="7" fill="#445566">On-device</text>
+
+    <rect x="784" y="112" width="68" height="42" rx="6" fill="#0f1628" stroke="#22c55e" stroke-width="1"/>
+    <text x="818" y="130" text-anchor="middle" font-size="14" fill="#22c55e">🗄</text>
+    <text x="818" y="145" text-anchor="middle" font-size="8" fill="#22c55e">Room DB</text>
+
+    <rect x="860" y="112" width="68" height="42" rx="6" fill="#0f1628" stroke="#c084fc" stroke-width="1"/>
+    <text x="894" y="130" text-anchor="middle" font-size="14" fill="#c084fc">⚡</text>
+    <text x="894" y="145" text-anchor="middle" font-size="8" fill="#c084fc">WorkMgr</text>
+
+    <rect x="936" y="112" width="66" height="42" rx="6" fill="#0f1628" stroke="#ec4899" stroke-width="1"/>
+    <text x="969" y="130" text-anchor="middle" font-size="14" fill="#ec4899">💉</text>
+    <text x="969" y="145" text-anchor="middle" font-size="8" fill="#ec4899">Hilt DI</text>
+
+    <!-- Backend row -->
+    <rect x="556" y="170" width="68" height="42" rx="6" fill="#071407" stroke="#6DB33F" stroke-width="1"/>
+    <text x="590" y="188" text-anchor="middle" font-size="14" fill="#6DB33F">☕</text>
+    <text x="590" y="203" text-anchor="middle" font-size="8" fill="#6DB33F">Spring 3</text>
+    <text x="590" y="212" text-anchor="middle" font-size="7" fill="#445566">Java 21</text>
+
+    <rect x="632" y="170" width="68" height="42" rx="6" fill="#071407" stroke="#336791" stroke-width="1"/>
+    <text x="666" y="188" text-anchor="middle" font-size="14" fill="#5ba4cf">🗺</text>
+    <text x="666" y="203" text-anchor="middle" font-size="8" fill="#5ba4cf">PostGIS</text>
+    <text x="666" y="212" text-anchor="middle" font-size="7" fill="#445566">3.4</text>
+
+    <rect x="708" y="170" width="68" height="42" rx="6" fill="#071407" stroke="#d97706" stroke-width="1"/>
+    <text x="742" y="188" text-anchor="middle" font-size="14" fill="#d97706">🤖</text>
+    <text x="742" y="203" text-anchor="middle" font-size="8" fill="#d97706">Claude AI</text>
+    <text x="742" y="212" text-anchor="middle" font-size="7" fill="#445566">Triage</text>
+
+    <rect x="784" y="170" width="68" height="42" rx="6" fill="#071407" stroke="#f59e0b" stroke-width="1"/>
+    <text x="818" y="188" text-anchor="middle" font-size="14" fill="#f59e0b">☁</text>
+    <text x="818" y="203" text-anchor="middle" font-size="8" fill="#f59e0b">AWS S3</text>
+    <text x="818" y="212" text-anchor="middle" font-size="7" fill="#445566">ap-south-1</text>
+
+    <rect x="860" y="170" width="68" height="42" rx="6" fill="#071407" stroke="#6DB33F" stroke-width="1"/>
+    <text x="894" y="188" text-anchor="middle" font-size="14" fill="#6DB33F">🔐</text>
+    <text x="894" y="203" text-anchor="middle" font-size="8" fill="#6DB33F">Spring Sec</text>
+    <text x="894" y="212" text-anchor="middle" font-size="7" fill="#445566">JWT</text>
+
+    <rect x="936" y="170" width="66" height="42" rx="6" fill="#071407" stroke="#336791" stroke-width="1"/>
+    <text x="969" y="188" text-anchor="middle" font-size="14" fill="#5ba4cf">🐘</text>
+    <text x="969" y="203" text-anchor="middle" font-size="8" fill="#5ba4cf">Postgres</text>
+    <text x="969" y="212" text-anchor="middle" font-size="7" fill="#445566">15</text>
+
+    <!-- Frontend row -->
+    <rect x="556" y="226" width="68" height="42" rx="6" fill="#0a0f28" stroke="#61DAFB" stroke-width="1"/>
+    <text x="590" y="244" text-anchor="middle" font-size="14" fill="#61DAFB">⚛</text>
+    <text x="590" y="259" text-anchor="middle" font-size="8" fill="#61DAFB">React 18</text>
+    <text x="590" y="268" text-anchor="middle" font-size="7" fill="#445566">TS 23.4%</text>
+
+    <rect x="632" y="226" width="68" height="42" rx="6" fill="#0a0f28" stroke="#38bdf8" stroke-width="1"/>
+    <text x="666" y="244" text-anchor="middle" font-size="14" fill="#38bdf8">🎨</text>
+    <text x="666" y="259" text-anchor="middle" font-size="8" fill="#38bdf8">Tailwind</text>
+
+    <rect x="708" y="226" width="68" height="42" rx="6" fill="#0a0f28" stroke="#22c55e" stroke-width="1"/>
+    <text x="742" y="244" text-anchor="middle" font-size="14" fill="#22c55e">🗺</text>
+    <text x="742" y="259" text-anchor="middle" font-size="8" fill="#22c55e">Leaflet</text>
+
+    <rect x="784" y="226" width="68" height="42" rx="6" fill="#0a0f28" stroke="#ff6b35" stroke-width="1"/>
+    <text x="818" y="244" text-anchor="middle" font-size="14" fill="#ff6b35">📈</text>
+    <text x="818" y="259" text-anchor="middle" font-size="8" fill="#ff6b35">Recharts</text>
+
+    <rect x="860" y="226" width="68" height="42" rx="6" fill="#0a0f28" stroke="#fbbf24" stroke-width="1"/>
+    <text x="894" y="244" text-anchor="middle" font-size="14" fill="#fbbf24">🔄</text>
+    <text x="894" y="259" text-anchor="middle" font-size="8" fill="#fbbf24">TanStack</text>
+    <text x="894" y="268" text-anchor="middle" font-size="7" fill="#445566">Query</text>
+
+    <rect x="936" y="226" width="66" height="42" rx="6" fill="#0a0f28" stroke="#7F52FF" stroke-width="1"/>
+    <text x="969" y="244" text-anchor="middle" font-size="14" fill="#7F52FF">⚡</text>
+    <text x="969" y="259" text-anchor="middle" font-size="8" fill="#7F52FF">Vite</text>
+
+    <!-- Infra row -->
+    <rect x="556" y="283" width="68" height="42" rx="6" fill="#0a1020" stroke="#61DAFB" stroke-width="1"/>
+    <text x="590" y="301" text-anchor="middle" font-size="14" fill="#61DAFB">🐳</text>
+    <text x="590" y="316" text-anchor="middle" font-size="8" fill="#61DAFB">Docker</text>
+
+    <rect x="632" y="283" width="68" height="42" rx="6" fill="#0a1020" stroke="#22c55e" stroke-width="1"/>
+    <text x="666" y="301" text-anchor="middle" font-size="14" fill="#22c55e">⚙</text>
+    <text x="666" y="316" text-anchor="middle" font-size="8" fill="#22c55e">GH Actions</text>
+
+    <rect x="708" y="283" width="68" height="42" rx="6" fill="#0a1020" stroke="#8899aa" stroke-width="1"/>
+    <text x="742" y="301" text-anchor="middle" font-size="14" fill="#8899aa">🔀</text>
+    <text x="742" y="316" text-anchor="middle" font-size="8" fill="#8899aa">Nginx</text>
+
+    <rect x="784" y="283" width="68" height="42" rx="6" fill="#0a1020" stroke="#f59e0b" stroke-width="1"/>
+    <text x="818" y="301" text-anchor="middle" font-size="14" fill="#f59e0b">🖥</text>
+    <text x="818" y="316" text-anchor="middle" font-size="8" fill="#f59e0b">EC2</text>
+    <text x="818" y="325" text-anchor="middle" font-size="7" fill="#445566">t3.medium</text>
+
+    <rect x="860" y="283" width="68" height="42" rx="6" fill="#0a1020" stroke="#336791" stroke-width="1"/>
+    <text x="894" y="301" text-anchor="middle" font-size="14" fill="#5ba4cf">🐘</text>
+    <text x="894" y="316" text-anchor="middle" font-size="8" fill="#5ba4cf">PostGIS</text>
+    <text x="894" y="325" text-anchor="middle" font-size="7" fill="#445566">alpine</text>
+
+    <rect x="936" y="283" width="66" height="42" rx="6" fill="#0a1020" stroke="#336791" stroke-width="1"/>
+    <text x="969" y="301" text-anchor="middle" font-size="14" fill="#5ba4cf">💾</text>
+    <text x="969" y="316" text-anchor="middle" font-size="8" fill="#5ba4cf">Hibernate</text>
+    <text x="969" y="325" text-anchor="middle" font-size="7" fill="#445566">Spatial</text>
+  </g>
+</svg>

@@ -1,0 +1,238 @@
+<svg viewBox="0 0 900 560" xmlns="http://www.w3.org/2000/svg" width="900" height="560">
+  <defs>
+    <linearGradient id="phoneBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0f1e"/>
+      <stop offset="100%" style="stop-color:#070b16"/>
+    </linearGradient>
+    <linearGradient id="screenBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#0d1628"/>
+      <stop offset="100%" style="stop-color:#0a1020"/>
+    </linearGradient>
+    <linearGradient id="btnGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ff6b35"/>
+      <stop offset="100%" style="stop-color:#e85d2c"/>
+    </linearGradient>
+    <filter id="phoneGlow">
+      <feGaussianBlur stdDeviation="4" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <clipPath id="phoneClip">
+      <rect x="0" y="0" width="220" height="440" rx="24"/>
+    </clipPath>
+  </defs>
+
+  <rect width="900" height="560" fill="url(#phoneBg)"/>
+
+  <!-- Background text -->
+  <text x="450" y="35" text-anchor="middle" font-family="Georgia, serif" font-size="16" fill="#ffffff" font-weight="bold">Android App — Jetpack Compose UI</text>
+  <text x="450" y="55" text-anchor="middle" font-family="monospace" font-size="10" fill="#ff6b35" letter-spacing="3">KOTLIN · CAMERAX · TFLITE · ROOM · WORKMANAGER</text>
+
+  <!-- ===== PHONE 1: Home / Report Screen ===== -->
+  <g transform="translate(55, 75)">
+    <!-- Phone body -->
+    <rect x="0" y="0" width="220" height="440" rx="24" fill="#111827" stroke="#2d4a8a" stroke-width="2" filter="url(#phoneGlow)"/>
+    <!-- Notch -->
+    <rect x="70" y="6" width="80" height="16" rx="8" fill="#0a0f1e"/>
+    <circle cx="155" cy="14" r="4" fill="#1e3a5f"/>
+    <!-- Screen -->
+    <rect x="8" y="28" width="204" height="404" rx="16" fill="url(#screenBg)" clip-path="url(#phoneClip)"/>
+
+    <!-- Status bar -->
+    <rect x="8" y="28" width="204" height="22" rx="0" fill="#0a1628"/>
+    <text x="20" y="42" font-family="monospace" font-size="8" fill="#667799">9:41</text>
+    <text x="170" y="42" font-family="monospace" font-size="8" fill="#667799">● ▲ 🔋</text>
+
+    <!-- App header -->
+    <rect x="8" y="50" width="204" height="40" fill="#0d1e35"/>
+    <text x="20" y="65" font-family="Georgia, serif" font-size="13" fill="#ff6b35" font-weight="bold">⚠ RoadSaathi</text>
+    <text x="20" y="80" font-family="monospace" font-size="8" fill="#445566">NH-48 · Bengaluru–Chennai</text>
+    <circle cx="195" cy="69" r="6" fill="#22c55e" opacity="0.8">
+      <animate attributeName="opacity" values="0.8;0.2;0.8" dur="2s" repeatCount="indefinite"/>
+    </circle>
+
+    <!-- Big Report Button -->
+    <rect x="25" y="105" width="170" height="70" rx="14" fill="url(#btnGrad)" filter="url(#phoneGlow)"/>
+    <text x="110" y="136" text-anchor="middle" font-size="24" fill="#ffffff">📷</text>
+    <text x="110" y="154" text-anchor="middle" font-family="monospace" font-size="11" fill="#ffffff" font-weight="bold">TAP TO REPORT</text>
+    <text x="110" y="167" text-anchor="middle" font-family="monospace" font-size="8" fill="#ffccb3">Works without internet</text>
+
+    <!-- Stats row -->
+    <rect x="14" y="190" width="90" height="48" rx="8" fill="#0a1628" stroke="#1e3a5f" stroke-width="1"/>
+    <text x="59" y="210" text-anchor="middle" font-family="monospace" font-size="9" fill="#667799">My Reports</text>
+    <text x="59" y="228" text-anchor="middle" font-family="Georgia, serif" font-size="20" fill="#ff6b35" font-weight="bold">7</text>
+
+    <rect x="116" y="190" width="90" height="48" rx="8" fill="#0a1628" stroke="#1e3a5f" stroke-width="1"/>
+    <text x="161" y="210" text-anchor="middle" font-family="monospace" font-size="9" fill="#667799">Unsynced</text>
+    <text x="161" y="228" text-anchor="middle" font-family="Georgia, serif" font-size="20" fill="#fbbf24" font-weight="bold">2</text>
+
+    <!-- Recent reports list -->
+    <text x="20" y="258" font-family="monospace" font-size="9" fill="#445566" letter-spacing="1">RECENT REPORTS</text>
+    <line x1="14" y1="262" x2="206" y2="262" stroke="#1e3a5f" stroke-width="0.5"/>
+
+    <!-- Report item 1 -->
+    <rect x="14" y="268" width="192" height="38" rx="6" fill="#0a1628"/>
+    <rect x="14" y="268" width="3" height="38" rx="2" fill="#ef4444"/>
+    <text x="25" y="283" font-family="monospace" font-size="9" fill="#cc8888">🕳 Pothole — HIGH</text>
+    <text x="25" y="296" font-family="monospace" font-size="8" fill="#445566">NH-48 Km 142 · 2h ago · Synced ✓</text>
+
+    <!-- Report item 2 -->
+    <rect x="14" y="312" width="192" height="38" rx="6" fill="#0a1628"/>
+    <rect x="14" y="312" width="3" height="38" rx="2" fill="#fbbf24"/>
+    <text x="25" y="327" font-family="monospace" font-size="9" fill="#aa9977">💧 Waterlog — MED</text>
+    <text x="25" y="340" font-family="monospace" font-size="8" fill="#445566">NH-48 Km 139 · 1d ago · Syncing…</text>
+
+    <!-- Report item 3 -->
+    <rect x="14" y="356" width="192" height="38" rx="6" fill="#0a1628"/>
+    <rect x="14" y="356" width="3" height="38" rx="2" fill="#22c55e"/>
+    <text x="25" y="371" font-family="monospace" font-size="9" fill="#88aa88">🚧 Collapse — LOW</text>
+    <text x="25" y="384" font-family="monospace" font-size="8" fill="#22c55e">Resolved by NHAI · 3d ago ✓</text>
+
+    <!-- Bottom nav -->
+    <rect x="8" y="400" width="204" height="32" fill="#0a1020"/>
+    <text x="50" y="420" text-anchor="middle" font-size="14">🏠</text>
+    <text x="110" y="420" text-anchor="middle" font-size="14">📋</text>
+    <text x="170" y="420" text-anchor="middle" font-size="14">👤</text>
+
+    <!-- Screen label -->
+    <text x="110" y="452" text-anchor="middle" font-family="monospace" font-size="9" fill="#334455">Home Screen</text>
+  </g>
+
+  <!-- ===== PHONE 2: Camera / Capture Screen ===== -->
+  <g transform="translate(340, 75)">
+    <rect x="0" y="0" width="220" height="440" rx="24" fill="#111827" stroke="#ff6b35" stroke-width="2" filter="url(#phoneGlow)"/>
+    <rect x="70" y="6" width="80" height="16" rx="8" fill="#0a0f1e"/>
+    <rect x="8" y="28" width="204" height="404" rx="16" fill="#071012"/>
+
+    <!-- Camera viewfinder -->
+    <rect x="8" y="28" width="204" height="280" fill="#081510"/>
+    <!-- Road scene mock -->
+    <rect x="8" y="200" width="204" height="108" fill="#0a1208"/>
+    <!-- Road perspective lines -->
+    <line x1="110" y1="28" x2="50" y2="308" stroke="#1a2a18" stroke-width="20"/>
+    <line x1="110" y1="28" x2="170" y2="308" stroke="#1a2a18" stroke-width="20"/>
+    <!-- Pothole indicator -->
+    <ellipse cx="110" cy="250" rx="35" ry="20" fill="none" stroke="#ff6b35" stroke-width="2" stroke-dasharray="4,2">
+      <animate attributeName="stroke-dashoffset" values="0;-12" dur="1s" repeatCount="indefinite"/>
+    </ellipse>
+    <text x="110" y="248" text-anchor="middle" font-size="12">🕳</text>
+
+    <!-- Corner brackets (viewfinder) -->
+    <g stroke="#ff6b35" stroke-width="2" fill="none">
+      <path d="M 28 58 L 28 44 L 42 44"/>
+      <path d="M 186 58 L 186 44 L 172 44"/>
+      <path d="M 28 278 L 28 292 L 42 292"/>
+      <path d="M 186 278 L 186 292 L 172 292"/>
+    </g>
+
+    <!-- ML confidence overlay -->
+    <rect x="14" y="56" width="130" height="36" rx="6" fill="#000000" opacity="0.7"/>
+    <text x="22" y="70" font-family="monospace" font-size="8" fill="#ff6b35" font-weight="bold">🧠 TFLite Inference</text>
+    <text x="22" y="83" font-family="monospace" font-size="8" fill="#22c55e">Pothole · 92% conf.</text>
+
+    <!-- GPS -->
+    <rect x="150" y="56" width="55" height="36" rx="6" fill="#000000" opacity="0.7"/>
+    <text x="155" y="70" font-family="monospace" font-size="7" fill="#61DAFB">📍 GPS</text>
+    <text x="155" y="83" font-family="monospace" font-size="7" fill="#61DAFB">12.9716°N</text>
+
+    <!-- Control bar -->
+    <rect x="8" y="308" width="204" height="120" fill="#0a1020"/>
+
+    <!-- Hazard type pills -->
+    <text x="20" y="326" font-family="monospace" font-size="8" fill="#445566">DETECTED TYPE</text>
+    <rect x="14" y="332" width="62" height="20" rx="10" fill="#ef4444" opacity="0.3" stroke="#ef4444" stroke-width="1"/>
+    <text x="45" y="346" text-anchor="middle" font-family="monospace" font-size="8" fill="#ef4444" font-weight="bold">Pothole</text>
+    <rect x="82" y="332" width="65" height="20" rx="10" fill="#0a1628" stroke="#334455" stroke-width="1"/>
+    <text x="114" y="346" text-anchor="middle" font-family="monospace" font-size="8" fill="#445566">Waterlog</text>
+    <rect x="153" y="332" width="55" height="20" rx="10" fill="#0a1628" stroke="#334455" stroke-width="1"/>
+    <text x="180" y="346" text-anchor="middle" font-family="monospace" font-size="8" fill="#445566">Collapse</text>
+
+    <!-- Severity selector -->
+    <text x="20" y="368" font-family="monospace" font-size="8" fill="#445566">SEVERITY</text>
+    <rect x="14" y="374" width="45" height="20" rx="10" fill="#ef4444" opacity="0.8"/>
+    <text x="36" y="388" text-anchor="middle" font-family="monospace" font-size="8" fill="#ffffff" font-weight="bold">HIGH</text>
+    <rect x="65" y="374" width="45" height="20" rx="10" fill="#0a1628" stroke="#334455" stroke-width="1"/>
+    <text x="87" y="388" text-anchor="middle" font-family="monospace" font-size="8" fill="#445566">MED</text>
+    <rect x="116" y="374" width="45" height="20" rx="10" fill="#0a1628" stroke="#334455" stroke-width="1"/>
+    <text x="138" y="388" text-anchor="middle" font-family="monospace" font-size="8" fill="#445566">LOW</text>
+
+    <!-- Capture button -->
+    <circle cx="110" cy="416" r="22" fill="url(#btnGrad)" filter="url(#phoneGlow)"/>
+    <circle cx="110" cy="416" r="18" fill="none" stroke="#ffffff" stroke-width="2" opacity="0.5"/>
+    <text x="110" y="421" text-anchor="middle" font-family="monospace" font-size="10" fill="#fff" font-weight="bold">⚡</text>
+
+    <text x="110" y="452" text-anchor="middle" font-family="monospace" font-size="9" fill="#334455">Capture Screen</text>
+  </g>
+
+  <!-- ===== PHONE 3: Sync / History Screen ===== -->
+  <g transform="translate(625, 75)">
+    <rect x="0" y="0" width="220" height="440" rx="24" fill="#111827" stroke="#22c55e" stroke-width="2" filter="url(#phoneGlow)"/>
+    <rect x="70" y="6" width="80" height="16" rx="8" fill="#0a0f1e"/>
+    <rect x="8" y="28" width="204" height="404" rx="16" fill="url(#screenBg)"/>
+
+    <!-- Status bar -->
+    <rect x="8" y="28" width="204" height="22" fill="#0a1628"/>
+    <text x="20" y="42" font-family="monospace" font-size="8" fill="#667799">9:41</text>
+
+    <!-- Header -->
+    <rect x="8" y="50" width="204" height="40" fill="#0d1e35"/>
+    <text x="20" y="65" font-family="monospace" font-size="11" fill="#22c55e" font-weight="bold">← Sync Status</text>
+    <text x="20" y="80" font-family="monospace" font-size="8" fill="#445566">WorkManager · Exponential Backoff</text>
+
+    <!-- Sync status card -->
+    <rect x="14" y="102" width="192" height="60" rx="10" fill="#071407" stroke="#22c55e" stroke-width="1"/>
+    <text x="30" y="120" font-family="monospace" font-size="9" fill="#22c55e" font-weight="bold">🟢 Sync Active</text>
+    <text x="30" y="135" font-family="monospace" font-size="8" fill="#446644">Next attempt: 2 min</text>
+    <text x="30" y="148" font-family="monospace" font-size="8" fill="#446644">Pending: 2 · Failed: 0 · Done: 5</text>
+    <!-- Animated sync ring -->
+    <circle cx="185" cy="130" r="14" fill="none" stroke="#22c55e" stroke-width="2" stroke-dasharray="44 44">
+      <animateTransform attributeName="transform" type="rotate" from="0 185 130" to="360 185 130" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <text x="185" y="134" text-anchor="middle" font-size="10" fill="#22c55e">↻</text>
+
+    <!-- Upload progress -->
+    <text x="20" y="182" font-family="monospace" font-size="9" fill="#445566">UPLOAD QUEUE</text>
+
+    <!-- Progress item 1 -->
+    <rect x="14" y="188" width="192" height="44" rx="6" fill="#0a1628"/>
+    <text x="22" y="202" font-family="monospace" font-size="8" fill="#aaaaaa">report_nh48_142_pothole.jpg</text>
+    <text x="22" y="213" font-family="monospace" font-size="7" fill="#667799">2.4 MB · S3 upload</text>
+    <rect x="22" y="218" width="170" height="6" rx="3" fill="#1e3a5f"/>
+    <rect x="22" y="218" width="136" height="6" rx="3" fill="#22c55e">
+      <animate attributeName="width" values="50;136;50" dur="3s" repeatCount="indefinite"/>
+    </rect>
+    <text x="196" y="224" text-anchor="end" font-family="monospace" font-size="7" fill="#22c55e">80%</text>
+
+    <!-- Progress item 2 -->
+    <rect x="14" y="238" width="192" height="44" rx="6" fill="#0a1628"/>
+    <text x="22" y="252" font-family="monospace" font-size="8" fill="#aaaaaa">report_nh48_139_water.jpg</text>
+    <text x="22" y="263" font-family="monospace" font-size="7" fill="#667799">1.8 MB · Waiting</text>
+    <rect x="22" y="268" width="170" height="6" rx="3" fill="#1e3a5f"/>
+    <rect x="22" y="268" width="20" height="6" rx="3" fill="#fbbf24" opacity="0.5"/>
+    <text x="196" y="274" text-anchor="end" font-family="monospace" font-size="7" fill="#fbbf24">Queued</text>
+
+    <!-- Sync log -->
+    <text x="20" y="298" font-family="monospace" font-size="9" fill="#445566">SYNC LOG</text>
+    <line x1="14" y1="302" x2="206" y2="302" stroke="#1e3a5f" stroke-width="0.5"/>
+
+    <text x="20" y="318" font-family="monospace" font-size="8" fill="#22c55e">✓ report #1045 synced · 2 min ago</text>
+    <text x="20" y="332" font-family="monospace" font-size="8" fill="#22c55e">✓ report #1044 synced · 1h ago</text>
+    <text x="20" y="346" font-family="monospace" font-size="8" fill="#22c55e">✓ report #1043 synced · 1h ago</text>
+    <text x="20" y="360" font-family="monospace" font-size="8" fill="#fbbf24">↻ report #1042 retry #2 · 2h ago</text>
+    <text x="20" y="374" font-family="monospace" font-size="8" fill="#22c55e">✓ report #1041 synced · 3h ago</text>
+
+    <!-- Bottom nav -->
+    <rect x="8" y="400" width="204" height="32" fill="#0a1020"/>
+    <text x="50" y="420" text-anchor="middle" font-size="14">🏠</text>
+    <text x="110" y="420" text-anchor="middle" font-size="14" fill="#22c55e">📋</text>
+    <text x="170" y="420" text-anchor="middle" font-size="14">👤</text>
+
+    <text x="110" y="452" text-anchor="middle" font-family="monospace" font-size="9" fill="#334455">Sync Screen</text>
+  </g>
+
+  <!-- Labels below phones -->
+  <g font-family="monospace" font-size="10" text-anchor="middle" fill="#334455">
+    <text x="165" y="540">① Home + Report history</text>
+    <text x="450" y="540">② On-device ML capture</text>
+    <text x="735" y="540">③ WorkManager sync</text>
+  </g>
+</svg>

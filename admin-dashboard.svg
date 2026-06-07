@@ -1,0 +1,307 @@
+<svg viewBox="0 0 1100 620" xmlns="http://www.w3.org/2000/svg" width="1100" height="620">
+  <defs>
+    <linearGradient id="dbBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0f1e"/>
+      <stop offset="100%" style="stop-color:#070c18"/>
+    </linearGradient>
+    <linearGradient id="sidebarGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#0d1728"/>
+      <stop offset="100%" style="stop-color:#0a1220"/>
+    </linearGradient>
+    <linearGradient id="cardGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a0f0a"/>
+      <stop offset="100%" style="stop-color:#0f0a07"/>
+    </linearGradient>
+    <filter id="dashGlow">
+      <feGaussianBlur stdDeviation="2" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <!-- Map tile pattern simulation -->
+    <pattern id="mapTiles" width="60" height="60" patternUnits="userSpaceOnUse">
+      <rect width="60" height="60" fill="#1a2a1a"/>
+      <rect x="0" y="0" width="60" height="1" fill="#223322"/>
+      <rect x="0" y="0" width="1" height="60" fill="#223322"/>
+      <rect x="0" y="30" width="60" height="1" fill="#1d2e1d"/>
+      <rect x="30" y="0" width="1" height="60" fill="#1d2e1d"/>
+    </pattern>
+    <!-- Chart bars gradient -->
+    <linearGradient id="barGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff6b35"/>
+      <stop offset="100%" style="stop-color:#cc3300"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Main background -->
+  <rect width="1100" height="620" fill="url(#dbBg)"/>
+
+  <!-- Browser chrome -->
+  <rect width="1100" height="32" fill="#111827"/>
+  <circle cx="18" cy="16" r="5" fill="#ef4444"/>
+  <circle cx="32" cy="16" r="5" fill="#f59e0b"/>
+  <circle cx="46" cy="16" r="5" fill="#22c55e"/>
+  <rect x="90" y="7" width="380" height="18" rx="9" fill="#1f2937"/>
+  <text x="280" y="20" text-anchor="middle" font-family="monospace" font-size="9" fill="#4b5563">admin.roadsaathi.in/dashboard</text>
+  <!-- Live dot in URL bar -->
+  <circle cx="352" cy="16" r="4" fill="#22c55e">
+    <animate attributeName="opacity" values="1;0.3;1" dur="2s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- Sidebar -->
+  <rect x="0" y="32" width="210" height="588" fill="url(#sidebarGrad)"/>
+  <rect x="208" y="32" width="2" height="588" fill="#1e3a5f" opacity="0.5"/>
+
+  <!-- Logo in sidebar -->
+  <rect x="15" y="48" width="180" height="44" rx="8" fill="#ff6b35" opacity="0.12"/>
+  <text x="105" y="68" text-anchor="middle" font-family="Georgia, serif" font-size="17" fill="#ff6b35" font-weight="bold" filter="url(#dashGlow)">⚠ RoadSaathi</text>
+  <text x="105" y="83" text-anchor="middle" font-family="monospace" font-size="8" fill="#664422" letter-spacing="2">NHAI CONTROL PANEL</text>
+
+  <!-- Nav items -->
+  <g font-family="monospace" font-size="11">
+    <!-- Dashboard (active) -->
+    <rect x="15" y="110" width="180" height="32" rx="6" fill="#ff6b35" opacity="0.18"/>
+    <rect x="15" y="110" width="3" height="32" rx="2" fill="#ff6b35"/>
+    <text x="45" y="130" fill="#ff6b35">📊 Dashboard</text>
+
+    <text x="45" y="163" fill="#5577aa">🗺  Live Map</text>
+    <text x="45" y="196" fill="#5577aa">📋 Triage Queue</text>
+    <text x="45" y="229" fill="#5577aa">📌 Status Board</text>
+    <text x="45" y="262" fill="#5577aa">📈 Analytics</text>
+    <text x="45" y="295" fill="#5577aa">⚙️  Settings</text>
+  </g>
+
+  <!-- Divider in sidebar -->
+  <line x1="20" y1="315" x2="190" y2="315" stroke="#1e3a5f" stroke-width="1"/>
+
+  <!-- Engineer profile at bottom of sidebar -->
+  <circle cx="38" cy="560" r="16" fill="#1e3a5f"/>
+  <text x="38" y="565" text-anchor="middle" font-size="16" fill="#61DAFB">👷</text>
+  <text x="65" y="555" font-family="monospace" font-size="10" fill="#8899aa">Rahul Sharma</text>
+  <text x="65" y="568" font-family="monospace" font-size="9" fill="#446688">NHAI NH-48</text>
+
+  <!-- ============ MAIN CONTENT ============ -->
+
+  <!-- Header bar -->
+  <rect x="210" y="32" width="890" height="44" fill="#0d1422" stroke-bottom="1"/>
+  <text x="240" y="58" font-family="Georgia, serif" font-size="16" fill="#ffffff" font-weight="bold">Dashboard Overview</text>
+  <text x="860" y="52" font-family="monospace" font-size="9" fill="#445566">Sun 07 Jun 2026</text>
+  <!-- Live refresh dot -->
+  <circle cx="1060" cy="54" r="5" fill="#22c55e" filter="url(#dashGlow)">
+    <animate attributeName="r" values="5;9;5" dur="2s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="1;0.2;1" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <text x="1070" y="58" font-family="monospace" font-size="9" fill="#22c55e">LIVE</text>
+
+  <!-- ===== STAT CARDS ROW ===== -->
+  <!-- Card 1: Total Reports -->
+  <rect x="225" y="92" width="180" height="100" rx="10" fill="#0f1a2e" stroke="#1e3a5f" stroke-width="1"/>
+  <rect x="225" y="92" width="180" height="4" rx="2" fill="#ff6b35" opacity="0.7"/>
+  <text x="315" y="118" text-anchor="middle" font-family="monospace" font-size="11" fill="#667799">Total Reports</text>
+  <text x="315" y="150" text-anchor="middle" font-family="Georgia, serif" font-size="36" fill="#ff6b35" font-weight="bold" filter="url(#dashGlow)">2,847</text>
+  <text x="315" y="170" text-anchor="middle" font-family="monospace" font-size="9" fill="#22c55e">↑ 12% this week</text>
+  <text x="315" y="184" text-anchor="middle" font-size="18" fill="#ff6b35">⚠</text>
+
+  <!-- Card 2: Open -->
+  <rect x="420" y="92" width="180" height="100" rx="10" fill="#0f1a2e" stroke="#1e3a5f" stroke-width="1"/>
+  <rect x="420" y="92" width="180" height="4" rx="2" fill="#ef4444" opacity="0.7"/>
+  <text x="510" y="118" text-anchor="middle" font-family="monospace" font-size="11" fill="#667799">Open / Critical</text>
+  <text x="510" y="150" text-anchor="middle" font-family="Georgia, serif" font-size="36" fill="#ef4444" font-weight="bold" filter="url(#dashGlow)">
+    843
+    <animate attributeName="fill" values="#ef4444;#ff8888;#ef4444" dur="3s" repeatCount="indefinite"/>
+  </text>
+  <text x="510" y="170" text-anchor="middle" font-family="monospace" font-size="9" fill="#ef4444">148 high severity</text>
+
+  <!-- Card 3: Resolved -->
+  <rect x="615" y="92" width="180" height="100" rx="10" fill="#0f1a2e" stroke="#1e3a5f" stroke-width="1"/>
+  <rect x="615" y="92" width="180" height="4" rx="2" fill="#22c55e" opacity="0.7"/>
+  <text x="705" y="118" text-anchor="middle" font-family="monospace" font-size="11" fill="#667799">Resolved</text>
+  <text x="705" y="150" text-anchor="middle" font-family="Georgia, serif" font-size="36" fill="#22c55e" font-weight="bold">1,891</text>
+  <text x="705" y="170" text-anchor="middle" font-family="monospace" font-size="9" fill="#22c55e">66.4% resolution rate</text>
+
+  <!-- Card 4: Avg Response -->
+  <rect x="810" y="92" width="180" height="100" rx="10" fill="#0f1a2e" stroke="#1e3a5f" stroke-width="1"/>
+  <rect x="810" y="92" width="180" height="4" rx="2" fill="#fbbf24" opacity="0.7"/>
+  <text x="900" y="118" text-anchor="middle" font-family="monospace" font-size="11" fill="#667799">Avg. Response</text>
+  <text x="900" y="150" text-anchor="middle" font-family="Georgia, serif" font-size="36" fill="#fbbf24" font-weight="bold">4.2h</text>
+  <text x="900" y="170" text-anchor="middle" font-family="monospace" font-size="9" fill="#fbbf24">↓ 18min from last week</text>
+
+  <!-- ===== MAP PANEL ===== -->
+  <rect x="225" y="208" width="510" height="300" rx="10" fill="#0f1a0f" stroke="#1e3a2e" stroke-width="1"/>
+  <rect x="225" y="208" width="510" height="32" rx="10" fill="#152215"/>
+  <rect x="225" y="228" width="510" height="12" rx="0" fill="#152215"/>
+  <text x="260" y="228" font-family="monospace" font-size="11" fill="#22c55e" font-weight="bold">🗺 Live Hazard Map — NH Corridors</text>
+  <text x="680" y="228" font-family="monospace" font-size="9" fill="#446644">Leaflet + PostGIS clusters</text>
+
+  <!-- Map tiles -->
+  <rect x="225" y="240" width="510" height="268" fill="url(#mapTiles)"/>
+
+  <!-- Map roads simulation -->
+  <g stroke="#2a4a2a" stroke-width="3" fill="none" opacity="0.6">
+    <path d="M 225 320 Q 400 290 735 340"/>
+    <path d="M 225 380 Q 380 360 735 390"/>
+    <path d="M 380 240 Q 410 340 440 508"/>
+    <path d="M 520 240 Q 530 340 540 508"/>
+  </g>
+  <!-- NH labels -->
+  <text x="340" y="317" font-family="monospace" font-size="8" fill="#446644">NH-48</text>
+  <text x="340" y="377" font-family="monospace" font-size="8" fill="#446644">NH-44</text>
+
+  <!-- Heatmap circles -->
+  <circle cx="370" cy="330" r="35" fill="#ff6b35" opacity="0.12"/>
+  <circle cx="370" cy="330" r="20" fill="#ff6b35" opacity="0.18"/>
+  <circle cx="370" cy="330" r="10" fill="#ff6b35" opacity="0.3"/>
+
+  <circle cx="560" cy="370" r="28" fill="#ef4444" opacity="0.12"/>
+  <circle cx="560" cy="370" r="16" fill="#ef4444" opacity="0.2"/>
+  <circle cx="560" cy="370" r="8" fill="#ef4444" opacity="0.35"/>
+
+  <circle cx="460" cy="300" r="22" fill="#fbbf24" opacity="0.12"/>
+  <circle cx="460" cy="300" r="12" fill="#fbbf24" opacity="0.2"/>
+
+  <circle cx="650" cy="340" r="18" fill="#ff6b35" opacity="0.12"/>
+  <circle cx="650" cy="340" r="10" fill="#ff6b35" opacity="0.2"/>
+
+  <!-- Cluster markers -->
+  <g filter="url(#dashGlow)">
+    <circle cx="370" cy="330" r="12" fill="#ef4444" stroke="#ffffff" stroke-width="1.5"/>
+    <text x="370" y="334" text-anchor="middle" font-family="monospace" font-size="8" fill="#fff" font-weight="bold">14</text>
+
+    <circle cx="560" cy="370" r="10" fill="#f59e0b" stroke="#ffffff" stroke-width="1.5"/>
+    <text x="560" y="374" text-anchor="middle" font-family="monospace" font-size="8" fill="#fff" font-weight="bold">8</text>
+
+    <circle cx="460" cy="300" r="9" fill="#22c55e" stroke="#ffffff" stroke-width="1.5"/>
+    <text x="460" y="304" text-anchor="middle" font-family="monospace" font-size="8" fill="#fff" font-weight="bold">5</text>
+  </g>
+
+  <!-- Map legend -->
+  <rect x="560" y="465" width="168" height="36" rx="4" fill="#0a140a" opacity="0.85"/>
+  <circle cx="577" cy="477" r="5" fill="#ef4444"/>
+  <text x="587" y="480" font-family="monospace" font-size="8" fill="#667799">Critical cluster</text>
+  <circle cx="577" cy="491" r="5" fill="#fbbf24"/>
+  <text x="587" y="494" font-family="monospace" font-size="8" fill="#667799">Moderate cluster</text>
+
+  <!-- ===== TRIAGE QUEUE PANEL ===== -->
+  <rect x="750" y="208" width="345" height="300" rx="10" fill="#0f1a2e" stroke="#1e3a5f" stroke-width="1"/>
+  <rect x="750" y="208" width="345" height="32" rx="10" fill="#152535"/>
+  <rect x="750" y="228" width="345" height="12" rx="0" fill="#152535"/>
+  <text x="785" y="228" font-family="monospace" font-size="11" fill="#61DAFB" font-weight="bold">📋 Triage Queue</text>
+  <text x="1040" y="228" font-family="monospace" font-size="9" fill="#334455">843 open</text>
+
+  <!-- Table header -->
+  <rect x="750" y="240" width="345" height="22" fill="#0d1828"/>
+  <text x="768" y="255" font-family="monospace" font-size="9" fill="#334455">TYPE</text>
+  <text x="860" y="255" font-family="monospace" font-size="9" fill="#334455">LOCATION</text>
+  <text x="960" y="255" font-family="monospace" font-size="9" fill="#334455">SEV</text>
+  <text x="1010" y="255" font-family="monospace" font-size="9" fill="#334455">STATUS</text>
+
+  <!-- Triage rows -->
+  <g font-family="monospace" font-size="9">
+    <!-- Row 1 - critical -->
+    <rect x="750" y="262" width="345" height="26" fill="#1a0a0a" opacity="0.5"/>
+    <rect x="750" y="262" width="3" height="26" fill="#ef4444"/>
+    <text x="768" y="279" fill="#cc8888">🕳 Pothole</text>
+    <text x="860" y="279" fill="#667799">NH-48 Km 142</text>
+    <rect x="955" y="266" width="28" height="14" rx="3" fill="#ef4444" opacity="0.3"/>
+    <text x="969" y="277" text-anchor="middle" fill="#ef4444" font-weight="bold">HIGH</text>
+    <rect x="1000" y="266" width="50" height="14" rx="3" fill="#1e3a5f"/>
+    <text x="1025" y="277" text-anchor="middle" fill="#61DAFB">OPEN</text>
+
+    <!-- Row 2 -->
+    <rect x="750" y="290" width="345" height="26" fill="#150f0a" opacity="0.4"/>
+    <rect x="750" y="290" width="3" height="26" fill="#f59e0b"/>
+    <text x="768" y="307" fill="#aaa888">💧 Waterlog</text>
+    <text x="860" y="307" fill="#667799">NH-44 Km 89</text>
+    <rect x="952" y="294" width="32" height="14" rx="3" fill="#f59e0b" opacity="0.3"/>
+    <text x="968" y="305" text-anchor="middle" fill="#f59e0b">MED</text>
+    <rect x="1000" y="294" width="65" height="14" rx="3" fill="#1a2e1a"/>
+    <text x="1032" y="305" text-anchor="middle" fill="#22c55e">IN PROG</text>
+
+    <!-- Row 3 -->
+    <rect x="750" y="318" width="345" height="26" fill="#0f1a2e" opacity="0.4"/>
+    <rect x="750" y="318" width="3" height="26" fill="#ef4444"/>
+    <text x="768" y="335" fill="#cc8888">🕳 Pothole</text>
+    <text x="860" y="335" fill="#667799">NH-8 Km 203</text>
+    <rect x="955" y="322" width="28" height="14" rx="3" fill="#ef4444" opacity="0.3"/>
+    <text x="969" y="333" text-anchor="middle" fill="#ef4444" font-weight="bold">HIGH</text>
+    <rect x="1000" y="322" width="50" height="14" rx="3" fill="#1e3a5f"/>
+    <text x="1025" y="333" text-anchor="middle" fill="#61DAFB">OPEN</text>
+
+    <!-- Row 4 -->
+    <rect x="750" y="346" width="345" height="26" opacity="0.3"/>
+    <rect x="750" y="346" width="3" height="26" fill="#22c55e"/>
+    <text x="768" y="363" fill="#889988">🚧 Collapse</text>
+    <text x="860" y="363" fill="#667799">NH-16 Km 55</text>
+    <rect x="952" y="350" width="28" height="14" rx="3" fill="#22c55e" opacity="0.2"/>
+    <text x="966" y="361" text-anchor="middle" fill="#22c55e">LOW</text>
+    <rect x="1000" y="350" width="65" height="14" rx="3" fill="#1a2a1a"/>
+    <text x="1032" y="361" text-anchor="middle" fill="#22c55e">RESOLVED</text>
+
+    <!-- Row 5 -->
+    <rect x="750" y="374" width="345" height="26" fill="#1a0a0a" opacity="0.3"/>
+    <rect x="750" y="374" width="3" height="26" fill="#ef4444"/>
+    <text x="768" y="391" fill="#cc8888">⚡ Crack</text>
+    <text x="860" y="391" fill="#667799">NH-52 Km 310</text>
+    <rect x="955" y="378" width="28" height="14" rx="3" fill="#ef4444" opacity="0.3"/>
+    <text x="969" y="389" text-anchor="middle" fill="#ef4444" font-weight="bold">HIGH</text>
+    <rect x="1000" y="378" width="50" height="14" rx="3" fill="#1e3a5f"/>
+    <text x="1025" y="389" text-anchor="middle" fill="#61DAFB">OPEN</text>
+
+    <!-- Row 6 -->
+    <rect x="750" y="402" width="345" height="26" opacity="0.3"/>
+    <rect x="750" y="402" width="3" height="26" fill="#f59e0b"/>
+    <text x="768" y="419" fill="#aa9977">🌊 Flooding</text>
+    <text x="860" y="419" fill="#667799">NH-27 Km 178</text>
+    <rect x="952" y="406" width="32" height="14" rx="3" fill="#f59e0b" opacity="0.3"/>
+    <text x="968" y="417" text-anchor="middle" fill="#f59e0b">MED</text>
+    <rect x="1000" y="406" width="65" height="14" rx="3" fill="#1a2e1a"/>
+    <text x="1032" y="417" text-anchor="middle" fill="#22c55e">IN PROG</text>
+  </g>
+
+  <!-- Pagination -->
+  <text x="900" y="500" text-anchor="middle" font-family="monospace" font-size="9" fill="#334455">Page 1 of 141 · 843 records</text>
+
+  <!-- ===== ANALYTICS ROW ===== -->
+  <rect x="225" y="524" width="510" height="80" rx="10" fill="#0f1a2e" stroke="#1e3a5f" stroke-width="1"/>
+  <text x="245" y="545" font-family="monospace" font-size="11" fill="#61DAFB" font-weight="bold">📈 Reports This Week</text>
+
+  <!-- Bar chart -->
+  <g transform="translate(245, 550)">
+    <rect x="0" y="0" width="28" height="30" rx="2" fill="url(#barGrad)" opacity="0.8"/>
+    <text x="14" y="43" text-anchor="middle" font-family="monospace" font-size="7" fill="#445566">Mon</text>
+
+    <rect x="38" y="-10" width="28" height="40" rx="2" fill="url(#barGrad)" opacity="0.8"/>
+    <text x="52" y="43" text-anchor="middle" font-family="monospace" font-size="7" fill="#445566">Tue</text>
+
+    <rect x="76" y="5" width="28" height="25" rx="2" fill="url(#barGrad)" opacity="0.8"/>
+    <text x="90" y="43" text-anchor="middle" font-family="monospace" font-size="7" fill="#445566">Wed</text>
+
+    <rect x="114" y="-15" width="28" height="45" rx="2" fill="url(#barGrad)" opacity="0.8"/>
+    <text x="128" y="43" text-anchor="middle" font-family="monospace" font-size="7" fill="#445566">Thu</text>
+
+    <rect x="152" y="0" width="28" height="30" rx="2" fill="url(#barGrad)" opacity="0.6"/>
+    <text x="166" y="43" text-anchor="middle" font-family="monospace" font-size="7" fill="#445566">Fri</text>
+
+    <rect x="190" y="10" width="28" height="20" rx="2" fill="url(#barGrad)" opacity="0.5"/>
+    <text x="204" y="43" text-anchor="middle" font-family="monospace" font-size="7" fill="#445566">Sat</text>
+
+    <rect x="228" y="8" width="28" height="22" rx="2" fill="#ff6b35" opacity="0.9"/>
+    <text x="242" y="43" text-anchor="middle" font-family="monospace" font-size="7" fill="#ff6b35">Sun</text>
+  </g>
+
+  <!-- Hazard type donut area -->
+  <rect x="750" y="524" width="345" height="80" rx="10" fill="#0f1a2e" stroke="#1e3a5f" stroke-width="1"/>
+  <text x="770" y="545" font-family="monospace" font-size="11" fill="#61DAFB" font-weight="bold">🥧 Hazard Distribution</text>
+
+  <!-- Donut chart simulation -->
+  <circle cx="840" cy="574" r="24" fill="none" stroke="#ef4444" stroke-width="10" stroke-dasharray="60 96" stroke-dashoffset="0"/>
+  <circle cx="840" cy="574" r="24" fill="none" stroke="#fbbf24" stroke-width="10" stroke-dasharray="35 121" stroke-dashoffset="-60"/>
+  <circle cx="840" cy="574" r="24" fill="none" stroke="#22c55e" stroke-width="10" stroke-dasharray="21 135" stroke-dashoffset="-95"/>
+  <circle cx="840" cy="574" r="24" fill="none" stroke="#61DAFB" stroke-width="10" stroke-dasharray="16 140" stroke-dashoffset="-116"/>
+  <text x="840" y="578" text-anchor="middle" font-family="monospace" font-size="9" fill="#ffffff" font-weight="bold">4 types</text>
+
+  <g font-family="monospace" font-size="8" transform="translate(878, 555)">
+    <circle cx="5" cy="5" r="4" fill="#ef4444"/><text x="14" y="9" fill="#667799">Pothole 42%</text>
+    <circle cx="5" cy="21" r="4" fill="#fbbf24"/><text x="14" y="25" fill="#667799">Waterlog 24%</text>
+    <circle cx="5" cy="37" r="4" fill="#22c55e"/><text x="14" y="41" fill="#667799">Collapse 15%</text>
+    <circle cx="5" cy="53" r="4" fill="#61DAFB"/><text x="14" y="57" fill="#667799">Other 19%</text>
+  </g>
+</svg>

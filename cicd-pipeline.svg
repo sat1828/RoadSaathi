@@ -1,0 +1,122 @@
+<svg viewBox="0 0 1100 300" xmlns="http://www.w3.org/2000/svg" width="1100" height="300">
+  <defs>
+    <linearGradient id="ciBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#060d1a"/>
+      <stop offset="100%" style="stop-color:#0a1428"/>
+    </linearGradient>
+    <filter id="ciGlow">
+      <feGaussianBlur stdDeviation="2" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <marker id="ciArrow" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto">
+      <path d="M 0 0 L 5 3 L 0 6 Z" fill="#22c55e"/>
+    </marker>
+  </defs>
+
+  <rect width="1100" height="300" fill="url(#ciBg)"/>
+
+  <!-- Grid -->
+  <pattern id="ciGrid" width="25" height="25" patternUnits="userSpaceOnUse">
+    <path d="M 25 0 L 0 0 0 25" fill="none" stroke="#0e1e30" stroke-width="0.5"/>
+  </pattern>
+  <rect width="1100" height="300" fill="url(#ciGrid)"/>
+
+  <text x="550" y="32" text-anchor="middle" font-family="Georgia, serif" font-size="16" fill="#ffffff" font-weight="bold">CI/CD Pipeline — GitHub Actions</text>
+  <text x="550" y="50" text-anchor="middle" font-family="monospace" font-size="10" fill="#22c55e" letter-spacing="3">git push → build → test → docker → deploy to EC2</text>
+
+  <!-- Stage boxes -->
+  <!-- 1: Push / Tag -->
+  <rect x="30" y="90" width="130" height="120" rx="10" fill="#0a1020" stroke="#334455" stroke-width="1.5"/>
+  <text x="95" y="115" text-anchor="middle" font-size="24" fill="#ffffff">⬆</text>
+  <text x="95" y="135" text-anchor="middle" font-family="monospace" font-size="10" fill="#8899aa" font-weight="bold">git push</text>
+  <text x="95" y="152" text-anchor="middle" font-family="monospace" font-size="9" fill="#445566">main branch</text>
+  <text x="95" y="166" text-anchor="middle" font-family="monospace" font-size="9" fill="#445566">or v* tag</text>
+  <text x="95" y="182" text-anchor="middle" font-family="monospace" font-size="8" fill="#334455">triggers 3 workflows</text>
+  <text x="95" y="220" text-anchor="middle" font-family="monospace" font-size="9" fill="#334455">Step 1</text>
+
+  <!-- Arrow 1→2 -->
+  <line x1="162" y1="150" x2="195" y2="150" stroke="#22c55e" stroke-width="2" marker-end="url(#ciArrow)">
+    <animate attributeName="stroke-dasharray" values="0,50;50,0" dur="2s" repeatCount="indefinite"/>
+  </line>
+
+  <!-- 2: Android CI -->
+  <rect x="197" y="70" width="130" height="80" rx="10" fill="#0f1a2e" stroke="#7F52FF" stroke-width="1.5"/>
+  <text x="262" y="94" text-anchor="middle" font-size="18">🤖</text>
+  <text x="262" y="110" text-anchor="middle" font-family="monospace" font-size="9" fill="#7F52FF" font-weight="bold">android-ci.yml</text>
+  <text x="262" y="125" text-anchor="middle" font-family="monospace" font-size="8" fill="#445566">Kotlin build</text>
+  <text x="262" y="138" text-anchor="middle" font-family="monospace" font-size="8" fill="#445566">+ lint + test</text>
+  <text x="262" y="162" text-anchor="middle" font-family="monospace" font-size="9" fill="#334455">on PR + main</text>
+
+  <!-- 2b: Backend CI -->
+  <rect x="197" y="170" width="130" height="80" rx="10" fill="#071407" stroke="#6DB33F" stroke-width="1.5"/>
+  <text x="262" y="194" text-anchor="middle" font-size="18">☕</text>
+  <text x="262" y="210" text-anchor="middle" font-family="monospace" font-size="9" fill="#6DB33F" font-weight="bold">backend-ci.yml</text>
+  <text x="262" y="225" text-anchor="middle" font-family="monospace" font-size="8" fill="#445566">Maven test</text>
+  <text x="262" y="238" text-anchor="middle" font-family="monospace" font-size="8" fill="#445566">PostGIS container</text>
+
+  <!-- Arrow 2→3 (both lines) -->
+  <line x1="329" y1="110" x2="380" y2="150" stroke="#22c55e" stroke-width="1.5" stroke-dasharray="4,2" marker-end="url(#ciArrow)">
+    <animate attributeName="stroke-dashoffset" values="0;-12" dur="1.5s" repeatCount="indefinite"/>
+  </line>
+  <line x1="329" y1="210" x2="380" y2="170" stroke="#22c55e" stroke-width="1.5" stroke-dasharray="4,2" marker-end="url(#ciArrow)">
+    <animate attributeName="stroke-dashoffset" values="0;-12" dur="1.5s" repeatCount="indefinite"/>
+  </line>
+
+  <!-- 3: Docker Build -->
+  <rect x="383" y="90" width="130" height="120" rx="10" fill="#0a1020" stroke="#61DAFB" stroke-width="1.5"/>
+  <text x="448" y="115" text-anchor="middle" font-size="24" fill="#61DAFB">🐳</text>
+  <text x="448" y="135" text-anchor="middle" font-family="monospace" font-size="10" fill="#61DAFB" font-weight="bold">docker build</text>
+  <text x="448" y="152" text-anchor="middle" font-family="monospace" font-size="9" fill="#445566">backend image</text>
+  <text x="448" y="166" text-anchor="middle" font-family="monospace" font-size="9" fill="#445566">admin/nginx image</text>
+  <text x="448" y="182" text-anchor="middle" font-family="monospace" font-size="8" fill="#334455">deploy.yml · on v* tags</text>
+  <text x="448" y="220" text-anchor="middle" font-family="monospace" font-size="9" fill="#334455">Step 3</text>
+
+  <!-- Arrow 3→4 -->
+  <line x1="515" y1="150" x2="548" y2="150" stroke="#22c55e" stroke-width="2" marker-end="url(#ciArrow)">
+    <animate attributeName="stroke-dasharray" values="0,50;50,0" dur="2s" begin="0.5s" repeatCount="indefinite"/>
+  </line>
+
+  <!-- 4: Push to Registry -->
+  <rect x="550" y="90" width="130" height="120" rx="10" fill="#0a1020" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="615" y="115" text-anchor="middle" font-size="24" fill="#f59e0b">📦</text>
+  <text x="615" y="135" text-anchor="middle" font-family="monospace" font-size="10" fill="#f59e0b" font-weight="bold">docker push</text>
+  <text x="615" y="152" text-anchor="middle" font-family="monospace" font-size="9" fill="#445566">ghcr.io registry</text>
+  <text x="615" y="166" text-anchor="middle" font-family="monospace" font-size="9" fill="#445566">tagged: v1.2.3</text>
+  <text x="615" y="182" text-anchor="middle" font-family="monospace" font-size="8" fill="#334455">GitHub Container Registry</text>
+  <text x="615" y="220" text-anchor="middle" font-family="monospace" font-size="9" fill="#334455">Step 4</text>
+
+  <!-- Arrow 4→5 -->
+  <line x1="682" y1="150" x2="715" y2="150" stroke="#22c55e" stroke-width="2" marker-end="url(#ciArrow)">
+    <animate attributeName="stroke-dasharray" values="0,50;50,0" dur="2s" begin="1s" repeatCount="indefinite"/>
+  </line>
+
+  <!-- 5: SSH Deploy -->
+  <rect x="717" y="90" width="130" height="120" rx="10" fill="#0a1020" stroke="#ec4899" stroke-width="1.5"/>
+  <text x="782" y="115" text-anchor="middle" font-size="24" fill="#ec4899">🔐</text>
+  <text x="782" y="135" text-anchor="middle" font-family="monospace" font-size="10" fill="#ec4899" font-weight="bold">SSH deploy</text>
+  <text x="782" y="152" text-anchor="middle" font-family="monospace" font-size="9" fill="#445566">EC2 t3.medium</text>
+  <text x="782" y="166" text-anchor="middle" font-family="monospace" font-size="9" fill="#445566">docker compose</text>
+  <text x="782" y="182" text-anchor="middle" font-family="monospace" font-size="8" fill="#334455">pull + up --force-recreate</text>
+  <text x="782" y="220" text-anchor="middle" font-family="monospace" font-size="9" fill="#334455">Step 5</text>
+
+  <!-- Arrow 5→6 -->
+  <line x1="849" y1="150" x2="882" y2="150" stroke="#22c55e" stroke-width="2" marker-end="url(#ciArrow)">
+    <animate attributeName="stroke-dasharray" values="0,50;50,0" dur="2s" begin="1.5s" repeatCount="indefinite"/>
+  </line>
+
+  <!-- 6: Live -->
+  <rect x="884" y="90" width="185" height="120" rx="10" fill="#071407" stroke="#22c55e" stroke-width="1.5"/>
+  <text x="976" y="115" text-anchor="middle" font-size="24" fill="#22c55e" filter="url(#ciGlow)">🌐</text>
+  <text x="976" y="135" text-anchor="middle" font-family="monospace" font-size="10" fill="#22c55e" font-weight="bold">LIVE</text>
+  <text x="976" y="150" text-anchor="middle" font-family="monospace" font-size="8" fill="#446644">admin.roadsaathi.in</text>
+  <text x="976" y="163" text-anchor="middle" font-family="monospace" font-size="8" fill="#446644">api.roadsaathi.in:8080</text>
+  <circle cx="976" cy="185" r="7" fill="#22c55e" filter="url(#ciGlow)">
+    <animate attributeName="r" values="7;14;7" dur="2s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="1;0.2;1" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <text x="976" y="220" text-anchor="middle" font-family="monospace" font-size="9" fill="#334455">Deployed ✓</text>
+
+  <!-- Services note at bottom -->
+  <text x="550" y="268" text-anchor="middle" font-family="monospace" font-size="10" fill="#334455">Services: postgis/postgis:15-3.4-alpine · roadsaathi-backend · roadsaathi-admin (nginx)</text>
+  <text x="550" y="284" text-anchor="middle" font-family="monospace" font-size="10" fill="#334455">Language split: Kotlin 48.6% · Java 26.0% · TypeScript 23.4% · CSS 1.6%</text>
+</svg>

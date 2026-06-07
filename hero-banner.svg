@@ -1,0 +1,142 @@
+<svg viewBox="0 0 1200 400" xmlns="http://www.w3.org/2000/svg" width="1200" height="400">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0f1e"/>
+      <stop offset="50%" style="stop-color:#0d1b2a"/>
+      <stop offset="100%" style="stop-color:#0a0f1e"/>
+    </linearGradient>
+    <linearGradient id="road" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:0"/>
+      <stop offset="30%" style="stop-color:#2d3561"/>
+      <stop offset="70%" style="stop-color:#2d3561"/>
+      <stop offset="100%" style="stop-color:#1a1a2e;stop-opacity:0"/>
+    </linearGradient>
+    <linearGradient id="orangeGlow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ff6b35;stop-opacity:0"/>
+      <stop offset="50%" style="stop-color:#ff6b35"/>
+      <stop offset="100%" style="stop-color:#ff6b35;stop-opacity:0"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="strongGlow">
+      <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
+      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="centerGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#ff6b35;stop-opacity:0.15"/>
+      <stop offset="100%" style="stop-color:#ff6b35;stop-opacity:0"/>
+    </radialGradient>
+    <!-- Grid pattern -->
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e2d4a" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="400" fill="url(#bg)"/>
+  <rect width="1200" height="400" fill="url(#grid)" opacity="0.4"/>
+  <rect width="1200" height="400" fill="url(#centerGlow)"/>
+
+  <!-- Road surface -->
+  <rect x="0" y="280" width="1200" height="120" fill="url(#road)" rx="0"/>
+  <rect x="0" y="278" width="1200" height="4" fill="url(#orangeGlow)" opacity="0.6"/>
+
+  <!-- Road dashes -->
+  <g opacity="0.4">
+    <rect x="50" y="340" width="80" height="6" fill="#ffd166" rx="3">
+      <animate attributeName="x" from="-80" to="1250" dur="3s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="300" y="340" width="80" height="6" fill="#ffd166" rx="3">
+      <animate attributeName="x" from="-80" to="1250" dur="3s" begin="0.5s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="550" y="340" width="80" height="6" fill="#ffd166" rx="3">
+      <animate attributeName="x" from="-80" to="1250" dur="3s" begin="1s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="800" y="340" width="80" height="6" fill="#ffd166" rx="3">
+      <animate attributeName="x" from="-80" to="1250" dur="3s" begin="1.5s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="1050" y="340" width="80" height="6" fill="#ffd166" rx="3">
+      <animate attributeName="x" from="-80" to="1250" dur="3s" begin="2s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+
+  <!-- Stars / particles -->
+  <g fill="#ffffff" opacity="0.3">
+    <circle cx="100" cy="60" r="1.5"><animate attributeName="opacity" values="0.3;0.8;0.3" dur="2s" repeatCount="indefinite"/></circle>
+    <circle cx="250" cy="40" r="1"><animate attributeName="opacity" values="0.2;0.7;0.2" dur="3s" repeatCount="indefinite"/></circle>
+    <circle cx="400" cy="80" r="2"><animate attributeName="opacity" values="0.3;0.9;0.3" dur="2.5s" repeatCount="indefinite"/></circle>
+    <circle cx="650" cy="30" r="1.5"><animate attributeName="opacity" values="0.1;0.6;0.1" dur="1.8s" repeatCount="indefinite"/></circle>
+    <circle cx="900" cy="70" r="1"><animate attributeName="opacity" values="0.3;0.8;0.3" dur="2.2s" repeatCount="indefinite"/></circle>
+    <circle cx="1050" cy="45" r="2"><animate attributeName="opacity" values="0.2;0.7;0.2" dur="2.8s" repeatCount="indefinite"/></circle>
+    <circle cx="1150" cy="90" r="1.5"><animate attributeName="opacity" values="0.1;0.5;0.1" dur="3.2s" repeatCount="indefinite"/></circle>
+  </g>
+
+  <!-- Warning triangle icon -->
+  <g transform="translate(180, 100)" filter="url(#strongGlow)">
+    <polygon points="60,10 110,90 10,90" fill="none" stroke="#ff6b35" stroke-width="4" stroke-linejoin="round">
+      <animate attributeName="opacity" values="0.7;1;0.7" dur="2s" repeatCount="indefinite"/>
+    </polygon>
+    <text x="60" y="78" text-anchor="middle" font-size="36" fill="#ff6b35" font-family="monospace" font-weight="bold">!</text>
+  </g>
+
+  <!-- Main title -->
+  <text x="600" y="155" text-anchor="middle" font-family="'Courier New', monospace" font-size="14" fill="#ff6b35" letter-spacing="8" opacity="0.8">
+    INDIA'S HIGHWAY SAFETY PLATFORM
+    <animate attributeName="opacity" values="0.6;1;0.6" dur="3s" repeatCount="indefinite"/>
+  </text>
+
+  <text x="600" y="220" text-anchor="middle" font-family="Georgia, serif" font-size="72" font-weight="900" fill="#ffffff" letter-spacing="-2" filter="url(#glow)">
+    Road<tspan fill="#ff6b35">Saathi</tspan>
+  </text>
+
+  <text x="600" y="262" text-anchor="middle" font-family="'Courier New', monospace" font-size="16" fill="#8899aa" letter-spacing="2">
+    Report · Triage · Resolve · Repeat
+  </text>
+
+  <!-- Tech badges -->
+  <g transform="translate(300, 290)" opacity="0.9">
+    <!-- Kotlin badge -->
+    <rect x="0" y="0" width="80" height="28" rx="14" fill="#7F52FF" opacity="0.2"/>
+    <rect x="0" y="0" width="80" height="28" rx="14" fill="none" stroke="#7F52FF" stroke-width="1"/>
+    <text x="40" y="19" text-anchor="middle" font-family="monospace" font-size="11" fill="#7F52FF" font-weight="bold">Kotlin</text>
+
+    <rect x="90" y="0" width="110" height="28" rx="14" fill="#6DB33F" opacity="0.2"/>
+    <rect x="90" y="0" width="110" height="28" rx="14" fill="none" stroke="#6DB33F" stroke-width="1"/>
+    <text x="145" y="19" text-anchor="middle" font-family="monospace" font-size="11" fill="#6DB33F" font-weight="bold">Spring Boot</text>
+
+    <rect x="210" y="0" width="80" height="28" rx="14" fill="#61DAFB" opacity="0.2"/>
+    <rect x="210" y="0" width="80" height="28" rx="14" fill="none" stroke="#61DAFB" stroke-width="1"/>
+    <text x="250" y="19" text-anchor="middle" font-family="monospace" font-size="11" fill="#61DAFB" font-weight="bold">React</text>
+
+    <rect x="300" y="0" width="100" height="28" rx="14" fill="#336791" opacity="0.2"/>
+    <rect x="300" y="0" width="100" height="28" rx="14" fill="none" stroke="#336791" stroke-width="1"/>
+    <text x="350" y="19" text-anchor="middle" font-family="monospace" font-size="11" fill="#5ba4cf" font-weight="bold">PostGIS</text>
+
+    <rect x="410" y="0" width="90" height="28" rx="14" fill="#D4A574" opacity="0.2"/>
+    <rect x="410" y="0" width="90" height="28" rx="14" fill="none" stroke="#D4A574" stroke-width="1"/>
+    <text x="455" y="19" text-anchor="middle" font-family="monospace" font-size="11" fill="#D4A574" font-weight="bold">TFLite</text>
+
+    <rect x="510" y="0" width="90" height="28" rx="14" fill="#ff6b35" opacity="0.2"/>
+    <rect x="510" y="0" width="90" height="28" rx="14" fill="none" stroke="#ff6b35" stroke-width="1"/>
+    <text x="555" y="19" text-anchor="middle" font-family="monospace" font-size="11" fill="#ff6b35" font-weight="bold">Claude AI</text>
+  </g>
+
+  <!-- Ping animation top right -->
+  <g transform="translate(1020, 80)">
+    <circle cx="0" cy="0" r="8" fill="#22c55e" filter="url(#glow)"/>
+    <circle cx="0" cy="0" r="8" fill="none" stroke="#22c55e" stroke-width="2">
+      <animate attributeName="r" values="8;22;8" dur="2s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="1;0;1" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <text x="16" y="5" font-family="monospace" font-size="11" fill="#22c55e">LIVE</text>
+  </g>
+
+  <!-- Stat counters top right -->
+  <g transform="translate(950, 110)" font-family="monospace" font-size="11" fill="#8899aa">
+    <text x="0" y="0">4.6L+ accidents/yr</text>
+    <text x="0" y="18">5 deaths/day (potholes)</text>
+    <text x="0" y="36">87% ML accuracy</text>
+  </g>
+</svg>

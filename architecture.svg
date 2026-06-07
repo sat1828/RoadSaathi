@@ -1,0 +1,284 @@
+<svg viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg" width="1200" height="600">
+  <defs>
+    <linearGradient id="archBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#060d1a"/>
+      <stop offset="100%" style="stop-color:#0d1b2e"/>
+    </linearGradient>
+    <linearGradient id="androidCard" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a2744"/>
+      <stop offset="100%" style="stop-color:#0f1e36"/>
+    </linearGradient>
+    <linearGradient id="backendCard" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a2a1a"/>
+      <stop offset="100%" style="stop-color:#0f1e0f"/>
+    </linearGradient>
+    <linearGradient id="adminCard" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#2a1a1a"/>
+      <stop offset="100%" style="stop-color:#1e0f0f"/>
+    </linearGradient>
+    <filter id="cardGlow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <pattern id="archGrid" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#162035" stroke-width="0.5"/>
+    </pattern>
+    <!-- Arrow marker -->
+    <marker id="arrowOrange" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M 0 0 L 6 3 L 0 6 Z" fill="#ff6b35"/>
+    </marker>
+    <marker id="arrowBlue" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M 0 0 L 6 3 L 0 6 Z" fill="#61DAFB"/>
+    </marker>
+    <marker id="arrowGreen" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M 0 0 L 6 3 L 0 6 Z" fill="#22c55e"/>
+    </marker>
+  </defs>
+
+  <rect width="1200" height="600" fill="url(#archBg)"/>
+  <rect width="1200" height="600" fill="url(#archGrid)" opacity="0.6"/>
+
+  <!-- Title -->
+  <text x="600" y="45" text-anchor="middle" font-family="Georgia, serif" font-size="22" fill="#ffffff" font-weight="bold">System Architecture</text>
+  <text x="600" y="68" text-anchor="middle" font-family="monospace" font-size="11" fill="#ff6b35" letter-spacing="3">END-TO-END DATA FLOW</text>
+  <line x1="300" y1="78" x2="900" y2="78" stroke="#ff6b35" stroke-width="0.5" opacity="0.4"/>
+
+  <!-- ===== ANDROID LAYER ===== -->
+  <rect x="30" y="100" width="300" height="420" rx="12" fill="url(#androidCard)" stroke="#2d4a8a" stroke-width="1.5"/>
+  <rect x="30" y="100" width="300" height="42" rx="12" fill="#2d4a8a" opacity="0.5"/>
+  <rect x="30" y="130" width="300" height="12" rx="0" fill="#2d4a8a" opacity="0.3"/>
+
+  <!-- Phone icon -->
+  <rect x="54" y="108" width="20" height="26" rx="3" fill="none" stroke="#61DAFB" stroke-width="1.5"/>
+  <rect x="61" y="131" width="6" height="2" rx="1" fill="#61DAFB"/>
+
+  <text x="180" y="130" text-anchor="middle" font-family="'Courier New', monospace" font-size="13" fill="#61DAFB" font-weight="bold" letter-spacing="1">ANDROID APP</text>
+  <text x="180" y="148" text-anchor="middle" font-family="monospace" font-size="9" fill="#5577aa" letter-spacing="2">Kotlin · Jetpack Compose</text>
+
+  <!-- Android sub-boxes -->
+  <g font-family="monospace" font-size="10">
+    <!-- CameraX -->
+    <rect x="55" y="165" width="110" height="60" rx="8" fill="#0a1628" stroke="#3d6094" stroke-width="1"/>
+    <text x="110" y="183" text-anchor="middle" fill="#61DAFB" font-size="9" font-weight="bold">📷 CameraX</text>
+    <text x="110" y="198" text-anchor="middle" fill="#667799">Photo capture</text>
+    <text x="110" y="212" text-anchor="middle" fill="#667799">+ GPS tag</text>
+
+    <!-- TFLite -->
+    <rect x="175" y="165" width="110" height="60" rx="8" fill="#0a1628" stroke="#3d6094" stroke-width="1"/>
+    <text x="230" y="183" text-anchor="middle" fill="#ff6b35" font-size="9" font-weight="bold">🧠 TFLite</text>
+    <text x="230" y="198" text-anchor="middle" fill="#667799">CNN Classify</text>
+    <text x="230" y="212" text-anchor="middle" fill="#667799">87% accuracy</text>
+
+    <!-- Arrow between CameraX → TFLite -->
+    <line x1="165" y1="195" x2="175" y2="195" stroke="#ff6b35" stroke-width="1.5" marker-end="url(#arrowOrange)"/>
+
+    <!-- Room DB -->
+    <rect x="55" y="245" width="110" height="60" rx="8" fill="#0a1628" stroke="#3d6094" stroke-width="1"/>
+    <text x="110" y="263" text-anchor="middle" fill="#ffd166" font-size="9" font-weight="bold">🗄 Room DB</text>
+    <text x="110" y="278" text-anchor="middle" fill="#667799">Offline store</text>
+    <text x="110" y="292" text-anchor="middle" fill="#667799">isSynced=false</text>
+
+    <!-- WorkManager -->
+    <rect x="175" y="245" width="110" height="60" rx="8" fill="#0a1628" stroke="#3d6094" stroke-width="1"/>
+    <text x="230" y="263" text-anchor="middle" fill="#22c55e" font-size="9" font-weight="bold">⚡ WorkManager</text>
+    <text x="230" y="278" text-anchor="middle" fill="#667799">Sync queue</text>
+    <text x="230" y="292" text-anchor="middle" fill="#667799">Retry 3× exp.</text>
+
+    <!-- Arrow Room → WorkManager -->
+    <line x1="165" y1="275" x2="175" y2="275" stroke="#22c55e" stroke-width="1.5" marker-end="url(#arrowGreen)"/>
+
+    <!-- Hilt DI -->
+    <rect x="55" y="325" width="110" height="50" rx="8" fill="#0a1628" stroke="#3d6094" stroke-width="1"/>
+    <text x="110" y="345" text-anchor="middle" fill="#c084fc" font-size="9" font-weight="bold">💉 Hilt DI</text>
+    <text x="110" y="360" text-anchor="middle" fill="#667799">Dependency inject</text>
+
+    <!-- Location -->
+    <rect x="175" y="325" width="110" height="50" rx="8" fill="#0a1628" stroke="#3d6094" stroke-width="1"/>
+    <text x="230" y="345" text-anchor="middle" fill="#38bdf8" font-size="9" font-weight="bold">📍 Location</text>
+    <text x="230" y="360" text-anchor="middle" fill="#667799">NH detection</text>
+
+    <!-- Offline badge -->
+    <rect x="85" y="395" width="140" height="28" rx="6" fill="#ff6b35" opacity="0.15" stroke="#ff6b35" stroke-width="1"/>
+    <text x="155" y="413" text-anchor="middle" fill="#ff6b35" font-size="10" font-weight="bold">✈ OFFLINE FIRST</text>
+
+    <!-- Screens listed -->
+    <text x="180" y="450" text-anchor="middle" fill="#445566" font-size="9">UI: Compose · Report · History · Status</text>
+
+    <!-- S3 upload note -->
+    <rect x="55" y="460" width="230" height="45" rx="6" fill="#0a1628" stroke="#2d4a8a" stroke-width="1" stroke-dasharray="4,2"/>
+    <text x="170" y="478" text-anchor="middle" fill="#667799" font-size="9">Photos → S3 presigned URL</text>
+    <text x="170" y="493" text-anchor="middle" fill="#667799" font-size="9">JSON → POST /api/hazards</text>
+  </g>
+
+  <!-- ===== BACKEND LAYER ===== -->
+  <rect x="420" y="100" width="360" height="420" rx="12" fill="url(#backendCard)" stroke="#2d6b2d" stroke-width="1.5"/>
+  <rect x="420" y="100" width="360" height="42" rx="12" fill="#2d6b2d" opacity="0.4"/>
+  <rect x="420" y="130" width="360" height="12" rx="0" fill="#2d6b2d" opacity="0.2"/>
+
+  <!-- Server icon -->
+  <rect x="444" y="108" width="22" height="6" rx="2" fill="none" stroke="#6DB33F" stroke-width="1.5"/>
+  <rect x="444" y="117" width="22" height="6" rx="2" fill="none" stroke="#6DB33F" stroke-width="1.5"/>
+  <circle cx="463" cy="111" r="1.5" fill="#22c55e"/>
+  <circle cx="463" cy="120" r="1.5" fill="#22c55e"/>
+
+  <text x="600" y="130" text-anchor="middle" font-family="'Courier New', monospace" font-size="13" fill="#6DB33F" font-weight="bold" letter-spacing="1">SPRING BOOT 3 API</text>
+  <text x="600" y="148" text-anchor="middle" font-family="monospace" font-size="9" fill="#446644" letter-spacing="2">Java 21 · Spring Security · JWT</text>
+
+  <g font-family="monospace" font-size="10">
+    <!-- Controller -->
+    <rect x="445" y="165" width="150" height="50" rx="8" fill="#071407" stroke="#2d6b2d" stroke-width="1"/>
+    <text x="520" y="183" text-anchor="middle" fill="#6DB33F" font-size="9" font-weight="bold">🔌 Controller Layer</text>
+    <text x="520" y="198" text-anchor="middle" fill="#446644">REST endpoints</text>
+    <text x="520" y="211" text-anchor="middle" fill="#446644">JWT auth guard</text>
+
+    <!-- Service -->
+    <rect x="610" y="165" width="150" height="50" rx="8" fill="#071407" stroke="#2d6b2d" stroke-width="1"/>
+    <text x="685" y="183" text-anchor="middle" fill="#6DB33F" font-size="9" font-weight="bold">⚙️ Service Layer</text>
+    <text x="685" y="198" text-anchor="middle" fill="#446644">Business logic</text>
+    <text x="685" y="211" text-anchor="middle" fill="#446644">Triage pipeline</text>
+
+    <line x1="595" y1="190" x2="610" y2="190" stroke="#6DB33F" stroke-width="1.5" marker-end="url(#arrowGreen)"/>
+
+    <!-- PostGIS -->
+    <rect x="445" y="235" width="150" height="65" rx="8" fill="#071407" stroke="#336791" stroke-width="1"/>
+    <text x="520" y="253" text-anchor="middle" fill="#5ba4cf" font-size="9" font-weight="bold">🗺 PostGIS</text>
+    <text x="520" y="267" text-anchor="middle" fill="#446699">ST_ClusterDBSCAN</text>
+    <text x="520" y="281" text-anchor="middle" fill="#446699">ST_DWithin 50km</text>
+    <text x="520" y="295" text-anchor="middle" fill="#446699">NH corridor lookup</text>
+
+    <!-- Claude AI -->
+    <rect x="610" y="235" width="150" height="65" rx="8" fill="#071407" stroke="#d97706" stroke-width="1"/>
+    <text x="685" y="253" text-anchor="middle" fill="#fbbf24" font-size="9" font-weight="bold">🤖 Claude AI Triage</text>
+    <text x="685" y="267" text-anchor="middle" fill="#997744">Auto-severity score</text>
+    <text x="685" y="281" text-anchor="middle" fill="#997744">Context analysis</text>
+    <text x="685" y="295" text-anchor="middle" fill="#997744">Alert routing</text>
+
+    <!-- Arrow Service → Claude -->
+    <line x1="685" y1="215" x2="685" y2="235" stroke="#fbbf24" stroke-width="1.5" marker-end="url(#arrowOrange)"/>
+
+    <!-- Repository -->
+    <rect x="445" y="320" width="315" height="50" rx="8" fill="#071407" stroke="#2d6b2d" stroke-width="1"/>
+    <text x="602" y="340" text-anchor="middle" fill="#6DB33F" font-size="9" font-weight="bold">📦 Repository (Hibernate Spatial)</text>
+    <text x="602" y="356" text-anchor="middle" fill="#446644">JPA · Spatial queries · JPQL · Native SQL</text>
+
+    <!-- Geofencing -->
+    <rect x="445" y="385" width="150" height="50" rx="8" fill="#071407" stroke="#2d6b2d" stroke-width="1"/>
+    <text x="520" y="403" text-anchor="middle" fill="#22c55e" font-size="9" font-weight="bold">📡 Geofencing</text>
+    <text x="520" y="417" text-anchor="middle" fill="#446644">Engineer alerts</text>
+    <text x="520" y="429" text-anchor="middle" fill="#446644">Jurisdiction match</text>
+
+    <!-- Auto-expiry -->
+    <rect x="610" y="385" width="150" height="50" rx="8" fill="#071407" stroke="#2d6b2d" stroke-width="1"/>
+    <text x="685" y="403" text-anchor="middle" fill="#22c55e" font-size="9" font-weight="bold">⏱ Auto-Expiry</text>
+    <text x="685" y="417" text-anchor="middle" fill="#446644">TTL: 7 days</text>
+    <text x="685" y="429" text-anchor="middle" fill="#446644">Archive on resolve</text>
+
+    <!-- GitHub Actions badge -->
+    <rect x="445" y="450" width="315" height="45" rx="8" fill="#071407" stroke="#2d6b2d" stroke-width="1" stroke-dasharray="4,2"/>
+    <text x="602" y="468" text-anchor="middle" fill="#446644" font-size="9">🐳 Docker Compose · Nginx</text>
+    <text x="602" y="483" text-anchor="middle" fill="#446644" font-size="9">GitHub Actions CI/CD · EC2 deploy on v* tags</text>
+  </g>
+
+  <!-- ===== ADMIN LAYER ===== -->
+  <rect x="870" y="100" width="300" height="420" rx="12" fill="url(#adminCard)" stroke="#8b3a3a" stroke-width="1.5"/>
+  <rect x="870" y="100" width="300" height="42" rx="12" fill="#8b3a3a" opacity="0.35"/>
+  <rect x="870" y="130" width="300" height="12" rx="0" fill="#8b3a3a" opacity="0.2"/>
+
+  <!-- Monitor icon -->
+  <rect x="893" y="108" width="24" height="18" rx="2" fill="none" stroke="#ff6b35" stroke-width="1.5"/>
+  <rect x="902" y="126" width="6" height="4" rx="0" fill="#ff6b35"/>
+  <rect x="898" y="130" width="14" height="2" rx="1" fill="#ff6b35"/>
+
+  <text x="1020" y="130" text-anchor="middle" font-family="'Courier New', monospace" font-size="13" fill="#ff6b35" font-weight="bold" letter-spacing="1">ADMIN DASHBOARD</text>
+  <text x="1020" y="148" text-anchor="middle" font-family="monospace" font-size="9" fill="#884444" letter-spacing="2">React 18 · TypeScript · Vite</text>
+
+  <g font-family="monospace" font-size="10">
+    <!-- Live Map -->
+    <rect x="893" y="165" width="130" height="65" rx="8" fill="#150a0a" stroke="#8b3a3a" stroke-width="1"/>
+    <text x="958" y="183" text-anchor="middle" fill="#ff6b35" font-size="9" font-weight="bold">🗺 Live Map</text>
+    <text x="958" y="197" text-anchor="middle" fill="#884444">Leaflet.js</text>
+    <text x="958" y="211" text-anchor="middle" fill="#884444">Heatmap overlay</text>
+    <text x="958" y="225" text-anchor="middle" fill="#884444">Cluster markers</text>
+
+    <!-- Triage Queue -->
+    <rect x="1037" y="165" width="116" height="65" rx="8" fill="#150a0a" stroke="#8b3a3a" stroke-width="1"/>
+    <text x="1095" y="183" text-anchor="middle" fill="#ff6b35" font-size="9" font-weight="bold">📋 Triage Queue</text>
+    <text x="1095" y="197" text-anchor="middle" fill="#884444">Severity sort</text>
+    <text x="1095" y="211" text-anchor="middle" fill="#884444">Filter by NH</text>
+    <text x="1095" y="225" text-anchor="middle" fill="#884444">Assign engineer</text>
+
+    <!-- Status Board -->
+    <rect x="893" y="245" width="130" height="65" rx="8" fill="#150a0a" stroke="#8b3a3a" stroke-width="1"/>
+    <text x="958" y="263" text-anchor="middle" fill="#ff6b35" font-size="9" font-weight="bold">📌 Status Board</text>
+    <text x="958" y="277" text-anchor="middle" fill="#884444">Kanban flow</text>
+    <text x="958" y="291" text-anchor="middle" fill="#884444">Open→In Prog</text>
+    <text x="958" y="305" text-anchor="middle" fill="#884444">→Resolved</text>
+
+    <!-- Analytics -->
+    <rect x="1037" y="245" width="116" height="65" rx="8" fill="#150a0a" stroke="#8b3a3a" stroke-width="1"/>
+    <text x="1095" y="263" text-anchor="middle" fill="#ff6b35" font-size="9" font-weight="bold">📊 Analytics</text>
+    <text x="1095" y="277" text-anchor="middle" fill="#884444">Recharts</text>
+    <text x="1095" y="291" text-anchor="middle" fill="#884444">Time-series</text>
+    <text x="1095" y="305" text-anchor="middle" fill="#884444">Blackspot rank</text>
+
+    <!-- Auth -->
+    <rect x="893" y="325" width="260" height="45" rx="8" fill="#150a0a" stroke="#8b3a3a" stroke-width="1"/>
+    <text x="1023" y="344" text-anchor="middle" fill="#ff6b35" font-size="9" font-weight="bold">🔐 Auth Context · JWT · TanStack Query</text>
+    <text x="1023" y="360" text-anchor="middle" fill="#884444">Role-based access · NHAI Admin login</text>
+
+    <!-- API Client -->
+    <rect x="893" y="385" width="260" height="45" rx="8" fill="#150a0a" stroke="#8b3a3a" stroke-width="1"/>
+    <text x="1023" y="403" text-anchor="middle" fill="#61DAFB" font-size="9" font-weight="bold">🔗 API Client (lib/api.ts)</text>
+    <text x="1023" y="419" text-anchor="middle" fill="#884444">Axios · Interceptors · Error handling</text>
+
+    <!-- Nginx -->
+    <rect x="893" y="445" width="260" height="50" rx="8" fill="#150a0a" stroke="#8b3a3a" stroke-width="1" stroke-dasharray="4,2"/>
+    <text x="1023" y="463" text-anchor="middle" fill="#884444" font-size="9">🐳 Dockerfile + nginx.conf</text>
+    <text x="1023" y="478" text-anchor="middle" fill="#884444" font-size="9">Served at admin.roadsaathi.in</text>
+  </g>
+
+  <!-- ===== FLOW ARROWS between layers ===== -->
+
+  <!-- Android → Backend: HTTP sync -->
+  <g>
+    <line x1="332" y1="370" x2="418" y2="370" stroke="#ff6b35" stroke-width="2" stroke-dasharray="6,3" marker-end="url(#arrowOrange)">
+      <animate attributeName="stroke-dashoffset" values="0;-18" dur="1.5s" repeatCount="indefinite"/>
+    </line>
+    <rect x="340" y="350" width="70" height="18" rx="4" fill="#0a0f1e"/>
+    <text x="375" y="363" text-anchor="middle" font-family="monospace" font-size="9" fill="#ff6b35">HTTP/REST</text>
+  </g>
+
+  <!-- Backend → Admin: REST polling + WebSocket -->
+  <g>
+    <line x1="782" y1="370" x2="868" y2="370" stroke="#61DAFB" stroke-width="2" stroke-dasharray="6,3" marker-end="url(#arrowBlue)">
+      <animate attributeName="stroke-dashoffset" values="0;-18" dur="1.5s" repeatCount="indefinite"/>
+    </line>
+    <rect x="790" y="350" width="72" height="18" rx="4" fill="#0a0f1e"/>
+    <text x="826" y="363" text-anchor="middle" font-family="monospace" font-size="9" fill="#61DAFB">JSON/REST</text>
+  </g>
+
+  <!-- DB cylinder below backend -->
+  <ellipse cx="600" cy="555" rx="55" ry="14" fill="#071407" stroke="#336791" stroke-width="1.5"/>
+  <rect x="545" y="541" width="110" height="24" fill="#071407" stroke="#336791" stroke-width="1.5" stroke-top="none"/>
+  <ellipse cx="600" cy="565" rx="55" ry="14" fill="#071407" stroke="#336791" stroke-width="1.5"/>
+  <text x="600" y="558" text-anchor="middle" font-family="monospace" font-size="10" fill="#5ba4cf" font-weight="bold">PostgreSQL 15 + PostGIS 3.4</text>
+
+  <!-- Backend → DB -->
+  <line x1="600" y1="522" x2="600" y2="540" stroke="#336791" stroke-width="1.5" marker-end="url(#arrowBlue)"/>
+
+  <!-- S3 bucket far right bottom -->
+  <rect x="960" y="535" width="100" height="42" rx="6" fill="#0a0f1e" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="1010" y="552" text-anchor="middle" font-family="monospace" font-size="9" fill="#f59e0b" font-weight="bold">☁ AWS S3</text>
+  <text x="1010" y="566" text-anchor="middle" font-family="monospace" font-size="9" fill="#775533">Photo uploads</text>
+  <line x1="1010" y1="520" x2="1010" y2="534" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="3,2"/>
+
+  <!-- Layer labels at top right -->
+  <g font-family="monospace" font-size="9" fill="#334455">
+    <text x="1170" y="120">Layer 1</text>
+    <text x="1170" y="132">Mobile</text>
+    <text x="1170" y="300">Layer 2</text>
+    <text x="1170" y="312">API</text>
+    <text x="1170" y="480">Layer 3</text>
+    <text x="1170" y="492">Admin</text>
+  </g>
+</svg>
